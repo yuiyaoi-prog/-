@@ -77,26 +77,63 @@ STEP 5  自動実行をONにする                 （2分）
 
 Slackに自動投稿するには「Bot（ロボットのメンバー）」を作る必要があります。
 
-### 2-1. Appを作る
+### 2-1. Appを作る（マニフェストを使う方法・推奨）
+
+設定ファイル（マニフェスト）を貼り付けるだけで、名前も権限も一発で設定されます。
 
 1. ブラウザで **https://api.slack.com/apps** を開く
    （MAGI-CのSlackにログインしているアカウントで開いてください）
 2. 右上の **「Create New App」** をクリック
-3. **「From scratch」**（ゼロから作成）を選ぶ
-4. 入力する
-   - **App Name**: `撮影日程アラート`
-   - **Pick a workspace**: `MAGI-C` を選択
-5. **「Create App」** をクリック
+3. 「Or start your own way」の **「From a manifest」** を選ぶ
+4. ワークスペース `MAGI-C` を選んで **「Next」**
+5. **JSON** のタブを選び、入力欄の中身を全部消して、
+   [`slack-app-manifest.json`](../slack-app-manifest.json) の中身を貼り付ける
 
-### 2-2. 権限（スコープ）を付ける
+   ```json
+   {
+     "display_information": {
+       "name": "撮影日程アラート",
+       "description": "撮影日程が未確定のクライアントを 03_pm-ディレクター管理 に通知します",
+       "background_color": "#2c2d30"
+     },
+     "features": {
+       "bot_user": {
+         "display_name": "撮影日程アラート",
+         "always_online": false
+       }
+     },
+     "oauth_config": {
+       "scopes": {
+         "bot": [
+           "chat:write"
+         ]
+       }
+     },
+     "settings": {
+       "org_deploy_enabled": false,
+       "socket_mode_enabled": false,
+       "token_rotation_enabled": false
+     }
+   }
+   ```
 
-1. 左メニューの **「OAuth & Permissions」** をクリック
-2. ページを下にスクロールして **「Scopes」** セクションを探す
-3. **「Bot Token Scopes」**（※「User Token Scopes」ではない方）の
-   **「Add an OAuth Scope」** をクリック
-4. 検索欄に `chat:write` と入力して選択
+6. **「Next」**→ 内容の確認画面が出るので **「Create」**
+
+これで権限（`chat:write`）まで設定済みのAppができます。**次は 2-3 に進んでください。**
 
 > `chat:write` は「メッセージを投稿する」権限です。これ1つだけでOKです。
+
+### 2-2. （マニフェストを使わない場合）手動で作る
+
+2-1 でうまくいかなかったときだけ、こちらを実施してください。
+
+1. 「Create New App」→ **「Blank app」**（以前の「From scratch」にあたるもの）を選ぶ
+2. **App Name**: `撮影日程アラート` / **Pick a workspace**: `MAGI-C` →「Create App」
+3. 左メニューの **「OAuth & Permissions」** をクリック
+4. 下にスクロールして **「Scopes」** セクションを探す
+5. **「Bot Token Scopes」**（※すぐ上の「User Token Scopes」ではない方）の
+   **「Add an OAuth Scope」** をクリック
+6. 検索欄に `chat:write` と入力して選択
 
 ### 2-3. ワークスペースにインストールしてトークンを取得
 
