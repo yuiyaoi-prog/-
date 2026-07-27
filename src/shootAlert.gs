@@ -1,8 +1,11 @@
 /**
  * 撮影日程 未確定アラート
  *
- * 月別シートを見て、撮影の「次回予定日」が空欄のクライアントを
+ * 月別シートを見て、F列「次回撮影日」が空欄のクライアントを
  * Slack「03_pm-ディレクター管理」へ通知する。
+ *
+ * カレンダー同期が過去日を取り除くため、撮影が終わって次の予定が未定になると
+ * このアラートで拾われる。
  *
  * 実行タイミング（setupTriggers() で設定）：
  *   ・毎月25日 10:00 → 翌月シートをチェック（初回確認）
@@ -36,12 +39,17 @@ function runCheck(sheetName, headline) {
     return;
   }
 
-  const block = getBlockByKind(CONFIG.ALERT_KIND);
+  const target = getTargetByKind(CONFIG.ALERT_KIND);
+  if (!target) {
+    console.log(`CONFIG.TARGETS に種別「${CONFIG.ALERT_KIND}」の書き込み先がありません`);
+    return;
+  }
+
   const clients = readClients(sheet);
   const missing = [];
 
   clients.forEach(client => {
-    const nextDate = sheet.getRange(client.row, block.nextCol).getDisplayValue().trim();
+    const nextDate = sheet.getRange(client.row, target.col).getDisplayValue().trim();
     if (!nextDate) {
       missing.push({ clientName: client.name, director: client.director });
     }

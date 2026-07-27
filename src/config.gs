@@ -4,13 +4,14 @@
  * 2026/07/27 時点の実物スプレッドシートを直接確認して作成した。
  * 列レイアウトを変更した場合は必ずここを更新すること。
  *
- * 【実物のシート構成（CSVエクスポートで確認済み）】
+ * 【実物のシート構成】
  *   行1 … タイトル
  *   行2 … 凡例
  *   行3 … A:クライアント名 / C:担当ディレクター / D:カレンダー検索キーワード / N:備考
- *          ※ E〜M のグループ見出し（月次報告MTG / 撮影 / インナーMTG）は空欄
- *   行4 … B:PM / E〜M:「次回予定日・前回実施日・ステータス」×3ブロック
+ *   行4 … B:PM / E:月次報告日 / F:次回撮影日 / G:ステータス
  *   行5〜… データ
+ *
+ * H〜M列は使用しない（2026/07/27 決定：E〜Gの3列だけで管理する）。
  */
 
 const CONFIG = {
@@ -32,24 +33,33 @@ const CONFIG = {
     PM: 2,          // B列
     DIRECTOR: 3,    // C列
     KEYWORDS: 4,    // D列（カンマ区切りの別名リスト）
+    STATUS: 7,      // G列（スクリプトは書き込まない。手動運用）
     REMARKS: 14,    // N列
   },
 
   /**
-   * 3ブロックの並び。シートの左から順に E-G / H-J / K-M。
-   *
-   * ★シート行3のグループ見出しが空欄のため、シートのタイトル
-   *   「月次報告MTG / 撮影 / インナーMTG」の順であると判断して設定している。
-   *   実際の並びが違っていた場合は、この配列の kind の順序だけを入れ替えれば直る。
+   * カレンダーの予定を書き込む先。
+   * ここに無い種別（インナーMTGなど）は判定はするが、書き込み先が無いので何もしない。
    */
-  BLOCKS: [
-    { kind: '月次報告MTG', nextCol: 5, lastCol: 6, statusCol: 7 },   // E, F, G
-    { kind: '撮影', nextCol: 8, lastCol: 9, statusCol: 10 },         // H, I, J
-    { kind: 'インナーMTG', nextCol: 11, lastCol: 12, statusCol: 13 }, // K, L, M
+  TARGETS: [
+    { kind: '月次報告MTG', col: 5, label: '月次報告日' }, // E列
+    { kind: '撮影', col: 6, label: '次回撮影日' },        // F列
   ],
 
-  /** 未確定アラートの判定対象とする種別 */
+  /** 未確定アラートの判定対象とする種別（この種別の列が空欄ならアラート） */
   ALERT_KIND: '撮影',
+
+  /** 月別シートの名前（「8月」「12月」など） */
+  MONTH_SHEET_PATTERN: /^(\d{1,2})月$/,
+
+  /**
+   * 過去日になった日付をセルから取り除くか。
+   *
+   * true にすると、E列・F列は常に「これから先の予定」だけになる。
+   * （2026/07/27 決定：過去の実施日は記録しない）
+   * 日付として解釈できないメモ書きは削除されない。
+   */
+  PRUNE_PAST_DATES: true,
 
   /**
    * イベントタイトルからの種別判定ルール。上から順に評価する。
@@ -70,9 +80,6 @@ const CONFIG = {
   /** 矢追さんが「参加しない」と回答済みの予定を無視するか */
   SKIP_DECLINED_EVENTS: true,
 
-  /** カレンダー同期で対象にする月数（当月を含む。2 なら当月＋翌月） */
-  SYNC_MONTH_COUNT: 2,
-
   /** トリガー実行時刻 */
   HOUR: {
     CALENDAR_SYNC: 10, // 毎日10:00
@@ -80,10 +87,10 @@ const CONFIG = {
   },
 };
 
-/** 指定した種別のブロック定義を返す */
-function getBlockByKind(kind) {
-  for (let i = 0; i < CONFIG.BLOCKS.length; i++) {
-    if (CONFIG.BLOCKS[i].kind === kind) return CONFIG.BLOCKS[i];
+/** 指定した種別の書き込み先を返す。書き込み先が無ければ null */
+function getTargetByKind(kind) {
+  for (let i = 0; i < CONFIG.TARGETS.length; i++) {
+    if (CONFIG.TARGETS[i].kind === kind) return CONFIG.TARGETS[i];
   }
-  throw new Error(`CONFIG.BLOCKS に種別「${kind}」が定義されていません`);
+  return null;
 }

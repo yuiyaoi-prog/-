@@ -35,16 +35,25 @@ function checkSpreadsheet(lines) {
   const names = ss.getSheets().map(s => s.getName());
   lines.push(`    シート一覧: ${names.join(' / ')}`);
 
-  const now = new Date();
+  const today = toDateOnly(new Date());
+  const monthSheets = getMonthSheets(ss);
+  if (monthSheets.length === 0) {
+    lines.push('NG  「8月」「9月」のような月別シートが1枚もありません');
+    lines.push('    → シート名を「8月」の形式に合わせてください');
+    return ss;
+  }
+  lines.push(`OK  同期対象の月別シート ${monthSheets.length}枚:`);
+  monthSheets.forEach(m => {
+    const year = resolveYearForMonth(m.month, today);
+    lines.push(`    ${m.sheet.getName()} → ${year}年${m.month}月の予定を取得します`);
+  });
+
   [
-    { label: '当月', name: `${now.getMonth() + 1}月` },
-    { label: '翌月', name: `${new Date(now.getFullYear(), now.getMonth() + 1, 1).getMonth() + 1}月` },
+    { label: '当月', name: `${today.getMonth() + 1}月` },
+    { label: '翌月', name: `${new Date(today.getFullYear(), today.getMonth() + 1, 1).getMonth() + 1}月` },
   ].forEach(t => {
-    if (names.indexOf(t.name) !== -1) {
-      lines.push(`OK  ${t.label}シート「${t.name}」があります`);
-    } else {
-      lines.push(`NG  ${t.label}シート「${t.name}」が見つかりません`);
-      lines.push(`    → シート名を「${t.name}」に合わせるか、シートを作成してください`);
+    if (names.indexOf(t.name) === -1) {
+      lines.push(`!!  ${t.label}シート「${t.name}」がありません（撮影アラートはこのシートを見ます）`);
     }
   });
   return ss;
@@ -58,32 +67,28 @@ function checkAliases(ss, lines) {
     return;
   }
 
-  const now = new Date();
-  const sheet = ss.getSheetByName(`${now.getMonth() + 1}月`) || ss.getSheets()[0];
-  const clients = readClients(sheet);
-  if (clients.length === 0) {
-    lines.push(`NG  シート「${sheet.getName()}」からクライアント行を読み取れませんでした`);
+  const aliasMap = buildAliasMap(ss);
+  const names = Object.keys(aliasMap);
+  if (names.length === 0) {
+    lines.push('NG  どのシートからもクライアント行を読み取れませんでした');
     return;
   }
 
-  lines.push(`OK  シート「${sheet.getName()}」から ${clients.length}件のクライアントを読み取りました`);
-  clients.forEach(c => {
-    if (c.aliases.length === 0) {
-      lines.push(`NG  ${c.name}: D列が空です`);
-    } else {
-      lines.push(`    ${c.name}: ${c.aliases.join(' / ')}（${c.aliases.length}件）`);
-    }
+  lines.push(`OK  ${names.length}件のクライアントを読み取りました`);
+  lines.push('    ※別名は全シートを合算しています。1枚に入っていれば全シートで使えます');
+  names.forEach(name => {
+    lines.push(`    ${name}: ${aliasMap[name].join(' / ')}（${aliasMap[name].length}件）`);
   });
 
   // 別名がクライアント名と全く無関係だと入れ違いの可能性がある
-  clients.forEach(c => {
-    const normalizedName = normalizeText(c.name);
-    const related = c.aliases.some(a => {
+  names.forEach(name => {
+    const normalizedName = normalizeText(name);
+    const related = aliasMap[name].some(a => {
       const na = normalizeText(a);
       return na && (normalizedName.indexOf(na) !== -1 || na.indexOf(normalizedName) !== -1);
     });
     if (!related) {
-      lines.push(`!!  ${c.name}: 別名がクライアント名とかけ離れています（入れ違いの可能性）`);
+      lines.push(`!!  ${name}: 別名がクライアント名とかけ離れています（入れ違いの可能性）`);
     }
   });
 }
@@ -116,10 +121,10 @@ function checkCalendar(lines) {
   const kinds = {};
   events.forEach(e => {
     const kind = detectKind(e.getTitle());
-    if (kind) kinds[kind] = (kinds[kind] || 0) + 1;
+    if (kind && getTargetByKind(kind)) kinds[kind] = (kinds[kind] || 0) + 1;
   });
   const summary = Object.keys(kinds).map(k => `${k}:${kinds[k]}件`).join(' / ');
-  lines.push(`    うち同期対象と判定: ${summary || 'なし'}`);
+  lines.push(`    うち書き込み対象と判定: ${summary || 'なし'}`);
 }
 
 function checkSlack(lines) {
