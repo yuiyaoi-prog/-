@@ -9,7 +9,7 @@
  *
  * 実行タイミング（setupTriggers() で設定）：
  *   ・毎月25日 10:00 → 翌月シートをチェック（初回確認）
- *   ・毎週水曜 10:00 → 当月シートをチェック（以降の週次確認）
+ *   ・毎週 月・水・金 10:00 → 当月シートをチェック（CONFIG.ALERT_WEEKDAYS で変更可）
  *
  * 対象クライアント：シートに行があるもの全て。
  *   （実物のシートに「契約状況」列が存在しないため、ステータスによる絞り込みは行わない。
@@ -23,10 +23,10 @@ function checkNextMonthShootSchedule() {
   runCheck(nextMonth.getFullYear(), nextMonth.getMonth() + 1, '初回確認（毎月25日）');
 }
 
-/** 毎週水曜：当月シートの撮影予定を週次チェック */
+/** 指定曜日：当月シートの撮影予定を定期チェック */
 function checkCurrentMonthShootScheduleWeekly() {
   const now = new Date();
-  runCheck(now.getFullYear(), now.getMonth() + 1, '週次確認（毎週水曜）');
+  runCheck(now.getFullYear(), now.getMonth() + 1, `定期確認（毎週${formatAlertWeekdays()}曜）`);
 }
 
 function runCheck(year, month, timing) {

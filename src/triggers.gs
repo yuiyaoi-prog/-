@@ -32,18 +32,27 @@ function setupTriggers() {
     .atHour(CONFIG.HOUR.ALERT)
     .create();
 
-  // 撮影日程アラート：毎週水曜10:00（当月分）
-  ScriptApp.newTrigger('checkCurrentMonthShootScheduleWeekly')
-    .timeBased()
-    .onWeekDay(ScriptApp.WeekDay.WEDNESDAY)
-    .atHour(CONFIG.HOUR.ALERT)
-    .create();
+  // 撮影日程アラート：指定した曜日の10:00（当月分）
+  CONFIG.ALERT_WEEKDAYS.forEach(day => {
+    const weekDay = ScriptApp.WeekDay[day];
+    if (!weekDay) {
+      throw new Error(
+        `CONFIG.ALERT_WEEKDAYS の「${day}」は指定できません。` +
+          'SUNDAY / MONDAY / TUESDAY / WEDNESDAY / THURSDAY / FRIDAY / SATURDAY のいずれかにしてください。'
+      );
+    }
+    ScriptApp.newTrigger('checkCurrentMonthShootScheduleWeekly')
+      .timeBased()
+      .onWeekDay(weekDay)
+      .atHour(CONFIG.HOUR.ALERT)
+      .create();
+  });
 
   console.log(
     'トリガー設定完了：\n' +
       `  ・カレンダー同期  毎日 ${CONFIG.HOUR.CALENDAR_SYNC}:00\n` +
       `  ・撮影アラート    毎月25日 ${CONFIG.HOUR.ALERT}:00（翌月分）\n` +
-      `  ・撮影アラート    毎週水曜 ${CONFIG.HOUR.ALERT}:00（当月分）`
+      `  ・撮影アラート    毎週${formatAlertWeekdays()}曜 ${CONFIG.HOUR.ALERT}:00（当月分）`
   );
 }
 

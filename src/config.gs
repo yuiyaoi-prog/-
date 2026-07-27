@@ -90,9 +90,32 @@ const CONFIG = {
   /** トリガー実行時刻 */
   HOUR: {
     CALENDAR_SYNC: 10, // 毎日10:00
-    ALERT: 10,         // 毎月25日10:00 / 毎週水曜10:00
+    ALERT: 10,         // 毎月25日10:00 / 毎週の定期確認10:00
   },
+
+  /**
+   * 撮影アラート（当月分）を送る曜日。
+   * 増やしたり減らしたりしたら setupTriggers() を再実行すること。
+   * 指定できるのは SUNDAY / MONDAY / TUESDAY / WEDNESDAY / THURSDAY / FRIDAY / SATURDAY。
+   */
+  ALERT_WEEKDAYS: ['MONDAY', 'WEDNESDAY', 'FRIDAY'],
 };
+
+/** ログや通知文での曜日表記 */
+const WEEKDAY_LABEL_JA = {
+  SUNDAY: '日',
+  MONDAY: '月',
+  TUESDAY: '火',
+  WEDNESDAY: '水',
+  THURSDAY: '木',
+  FRIDAY: '金',
+  SATURDAY: '土',
+};
+
+/** 「月・水・金」のような表記を作る */
+function formatAlertWeekdays() {
+  return CONFIG.ALERT_WEEKDAYS.map(day => WEEKDAY_LABEL_JA[day] || day).join('・');
+}
 
 /** 指定した種別の書き込み先を返す。書き込み先が無ければ null */
 function getTargetByKind(kind) {

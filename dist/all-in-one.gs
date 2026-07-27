@@ -108,9 +108,32 @@ const CONFIG = {
   /** トリガー実行時刻 */
   HOUR: {
     CALENDAR_SYNC: 10, // 毎日10:00
-    ALERT: 10,         // 毎月25日10:00 / 毎週水曜10:00
+    ALERT: 10,         // 毎月25日10:00 / 毎週の定期確認10:00
   },
+
+  /**
+   * 撮影アラート（当月分）を送る曜日。
+   * 増やしたり減らしたりしたら setupTriggers() を再実行すること。
+   * 指定できるのは SUNDAY / MONDAY / TUESDAY / WEDNESDAY / THURSDAY / FRIDAY / SATURDAY。
+   */
+  ALERT_WEEKDAYS: ['MONDAY', 'WEDNESDAY', 'FRIDAY'],
 };
+
+/** ログや通知文での曜日表記 */
+const WEEKDAY_LABEL_JA = {
+  SUNDAY: '日',
+  MONDAY: '月',
+  TUESDAY: '火',
+  WEDNESDAY: '水',
+  THURSDAY: '木',
+  FRIDAY: '金',
+  SATURDAY: '土',
+};
+
+/** 「月・水・金」のような表記を作る */
+function formatAlertWeekdays() {
+  return CONFIG.ALERT_WEEKDAYS.map(day => WEEKDAY_LABEL_JA[day] || day).join('・');
+}
 
 /** 指定した種別の書き込み先を返す。書き込み先が無ければ null */
 function getTargetByKind(kind) {
@@ -612,7 +635,7 @@ function writeResults(sheet, sheetName, clients, results, context, isDryRun) {
  *
  * 実行タイミング（setupTriggers() で設定）：
  *   ・毎月25日 10:00 → 翌月シートをチェック（初回確認）
- *   ・毎週水曜 10:00 → 当月シートをチェック（以降の週次確認）
+ *   ・毎週 月・水・金 10:00 → 当月シートをチェック（CONFIG.ALERT_WEEKDAYS で変更可）
  *
  * 対象クライアント：シートに行があるもの全て。
  *   （実物のシートに「契約状況」列が存在しないため、ステータスによる絞り込みは行わない。
@@ -626,10 +649,10 @@ function checkNextMonthShootSchedule() {
   runCheck(nextMonth.getFullYear(), nextMonth.getMonth() + 1, '初回確認（毎月25日）');
 }
 
-/** 毎週水曜：当月シートの撮影予定を週次チェック */
+/** 指定曜日：当月シートの撮影予定を定期チェック */
 function checkCurrentMonthShootScheduleWeekly() {
   const now = new Date();
-  runCheck(now.getFullYear(), now.getMonth() + 1, '週次確認（毎週水曜）');
+  runCheck(now.getFullYear(), now.getMonth() + 1, `定期確認（毎週${formatAlertWeekdays()}曜）`);
 }
 
 function runCheck(year, month, timing) {
@@ -961,18 +984,27 @@ function setupTriggers() {
     .atHour(CONFIG.HOUR.ALERT)
     .create();
 
-  // 撮影日程アラート：毎週水曜10:00（当月分）
-  ScriptApp.newTrigger('checkCurrentMonthShootScheduleWeekly')
-    .timeBased()
-    .onWeekDay(ScriptApp.WeekDay.WEDNESDAY)
-    .atHour(CONFIG.HOUR.ALERT)
-    .create();
+  // 撮影日程アラート：指定した曜日の10:00（当月分）
+  CONFIG.ALERT_WEEKDAYS.forEach(day => {
+    const weekDay = ScriptApp.WeekDay[day];
+    if (!weekDay) {
+      throw new Error(
+        `CONFIG.ALERT_WEEKDAYS の「${day}」は指定できません。` +
+          'SUNDAY / MONDAY / TUESDAY / WEDNESDAY / THURSDAY / FRIDAY / SATURDAY のいずれかにしてください。'
+      );
+    }
+    ScriptApp.newTrigger('checkCurrentMonthShootScheduleWeekly')
+      .timeBased()
+      .onWeekDay(weekDay)
+      .atHour(CONFIG.HOUR.ALERT)
+      .create();
+  });
 
   console.log(
     'トリガー設定完了：\n' +
       `  ・カレンダー同期  毎日 ${CONFIG.HOUR.CALENDAR_SYNC}:00\n` +
       `  ・撮影アラート    毎月25日 ${CONFIG.HOUR.ALERT}:00（翌月分）\n` +
-      `  ・撮影アラート    毎週水曜 ${CONFIG.HOUR.ALERT}:00（当月分）`
+      `  ・撮影アラート    毎週${formatAlertWeekdays()}曜 ${CONFIG.HOUR.ALERT}:00（当月分）`
   );
 }
 
