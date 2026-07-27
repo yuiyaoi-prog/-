@@ -43,9 +43,16 @@ src/
   shootAlert.gs     撮影日程の未確定アラート
   checkSetup.gs     セットアップ診断（何も変更しない）
   triggers.gs       トリガー設定
+dist/
+  all-in-one.gs     src/ を1ファイルに結合したもの（Apps Scriptに貼る用・自動生成）
 test/
   verify.js         判定ロジックの回帰テスト（node test/verify.js）
+tools/
+  build-all-in-one.js  dist/all-in-one.gs の生成スクリプト
 ```
+
+`src/` を編集したら `node tools/build-all-in-one.js` で `dist/` を再生成すること。
+`node tools/build-all-in-one.js --check` で最新かどうかだけ確認できる。
 
 ## 関数早見表
 

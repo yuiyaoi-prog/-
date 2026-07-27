@@ -9,6 +9,7 @@ function checkSetup() {
   const lines = [];
   lines.push('===== セットアップ診断 =====');
 
+  checkTimeZone(lines);
   const ss = checkSpreadsheet(lines);
   checkAliases(ss, lines);
   checkCalendar(lines);
@@ -17,6 +18,24 @@ function checkSetup() {
   lines.push('');
   lines.push('［凡例］OK＝問題なし／NG＝要対応／!!＝念のため確認');
   console.log(lines.join('\n'));
+}
+
+/**
+ * トリガーの実行時刻はスクリプトのタイムゾーンで解釈されるため、
+ * ここが日本時間でないと「毎日10:00」が別の時刻になってしまう。
+ */
+function checkTimeZone(lines) {
+  lines.push('');
+  lines.push('■ タイムゾーン');
+  const tz = Session.getScriptTimeZone();
+  if (tz === 'Asia/Tokyo') {
+    lines.push(`OK  ${tz}（日本標準時）`);
+  } else {
+    lines.push(`NG  ${tz} になっています`);
+    lines.push('    → このままだとトリガーが10:00以外の時刻に動きます');
+    lines.push('    → 「プロジェクトの設定」→「タイムゾーン」を');
+    lines.push('      「(GMT+09:00) 日本標準時 - 東京」に変更してください');
+  }
 }
 
 function checkSpreadsheet(lines) {
