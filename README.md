@@ -3,6 +3,7 @@
 MAGI-C の「クライアント別 月次報告MTG / 撮影 / インナーMTG 日程管理」スプレッドシートを軸に、
 クライアントの運用状況の社内確認を自動化する Google Apps Script プロジェクト。
 
+- **セットアップ手順（初めての方はこちら）** → [`docs/setup-guide.md`](docs/setup-guide.md)
 - 設計の経緯・調査結果・決定事項 → [`docs/implementation-plan.md`](docs/implementation-plan.md)
 
 ## できること
@@ -21,8 +22,20 @@ src/
   util.gs           正規化・日付整形・セル統合・クライアント読み取り
   calendarSync.gs   カレンダー同期
   shootAlert.gs     撮影日程の未確定アラート
+  checkSetup.gs     セットアップ診断（何も変更しない）
   triggers.gs       トリガー設定
 ```
+
+## 関数早見表
+
+| 関数名 | 何をするか | 危険度 |
+|---|---|---|
+| `checkSetup` | 設定を診断する | 安全（何も変えない） |
+| `dryRunCalendarSync` | 同期結果を予告する | 安全（何も変えない） |
+| `listTriggers` | トリガー一覧を表示 | 安全（何も変えない） |
+| `syncCalendarToSheets` | シートに日付を書き込む | シートが変わる |
+| `testRunNow` | Slackに今すぐ通知を送る | Slackに投稿される |
+| `setupTriggers` | 自動実行を設定する | トリガーが作られる |
 
 ## セットアップ手順
 
