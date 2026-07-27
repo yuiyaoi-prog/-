@@ -6,7 +6,7 @@
   },
   "features": {
     "bot_user": {
-      "display_name": "撮影日程アラート",
+      "display_name": "satsuei-alert",
       "always_online": false
     }
   },
