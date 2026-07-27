@@ -105,7 +105,31 @@ function postSlackAlert(headline, missing) {
   }
 }
 
-/** 動作確認用：今すぐ当月シートに対してチェックを走らせる */
+/**
+ * 動作確認用：今すぐチェックを走らせてSlackに送る。
+ *
+ * 当月シートがまだ無い時期（月別シートを先の月から作り始めた直後など）でも
+ * テストできるよう、当月シートが無ければ翌月シートで試す。
+ */
 function testRunNow() {
-  checkCurrentMonthShootScheduleWeekly();
+  const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
+  const today = toDateOnly(new Date());
+  const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+
+  const candidates = [
+    { label: '当月', year: today.getFullYear(), month: today.getMonth() + 1 },
+    { label: '翌月', year: nextMonth.getFullYear(), month: nextMonth.getMonth() + 1 },
+  ];
+
+  for (let i = 0; i < candidates.length; i++) {
+    const c = candidates[i];
+    if (findMonthSheet(ss, c.year, c.month, today)) {
+      console.log(`${c.label}（${c.year}年${c.month}月）のシートでテストします`);
+      runCheck(c.year, c.month, 'テスト実行');
+      return;
+    }
+    console.log(`${c.label}（${c.year}年${c.month}月）のシートがないため飛ばします`);
+  }
+
+  console.log('当月・翌月どちらのシートも見つかりませんでした');
 }
