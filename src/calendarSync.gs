@@ -157,17 +157,24 @@ function detectKind(title) {
 /**
  * イベントタイトルに含まれる別名から、対応するクライアントを1件返す。
  *
+ * 照合には normalizeLoose を使う。スペース・全角半角に加えて
+ * アンダースコアや中黒などの区切り記号も無視するため、
+ * 別名「ボンボンクリニック_渋谷」でカレンダーの「ボンボンクリニック渋谷」を拾える。
+ *
+ * 種別判定（detectKind）には使わない。区切りを詰めると
+ * 「撮影 - 前田さん」が「撮影前」と誤判定されてしまうため。
+ *
  * 複数のクライアントが該当した場合は、一致した別名がより長いほうを採用する。
  * （例：「NAS」と「NASプレミアム」の両方が候補になったとき、後者を優先する）
  */
 function matchClient(title, clients) {
-  const normalizedTitle = normalizeText(title);
+  const normalizedTitle = normalizeLoose(title);
   let best = null;
   let bestLength = 0;
 
   clients.forEach(client => {
     client.aliases.forEach(alias => {
-      const normalizedAlias = normalizeText(alias);
+      const normalizedAlias = normalizeLoose(alias);
       if (!normalizedAlias) return;
       if (normalizedTitle.indexOf(normalizedAlias) === -1) return;
       if (normalizedAlias.length > bestLength) {
