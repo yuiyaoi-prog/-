@@ -18,6 +18,15 @@ function normalizeText(value) {
     .toUpperCase();
 }
 
+/**
+ * normalizeText に加えて、括弧・アンダースコア・中黒などの記号も落とす。
+ * 「ボンボンクリニック（渋谷）」と「ボンボンクリニック_渋谷」を
+ * 同じものとして比べたいときに使う（診断の警告判定用）。
+ */
+function normalizeLoose(value) {
+  return normalizeText(value).replace(/[（）()「」『』【】\[\]{}_\-–—・､、。,.\/／|]/g, '');
+}
+
 /** D列のカンマ区切り文字列を別名の配列に分解する（全角カンマ・読点も区切りとして扱う） */
 function parseAliases(rawKeywords) {
   return String(rawKeywords || '')
@@ -164,18 +173,55 @@ function readClients(sheet) {
   return clients;
 }
 
-/** 「8月」「12月」形式のシートを、月の数値つきで返す */
-function getMonthSheets(ss) {
+/**
+ * シート名を年月に分解する。月別シートでなければ null。
+ *   「2026年8月」→ { year: 2026, month: 8 }
+ *   「8月」      → { year: null, month: 8 }   ← 年は呼び出し側で解決する
+ */
+function parseMonthSheetName(name) {
+  const trimmed = String(name || '').trim();
+
+  const withYear = trimmed.match(CONFIG.MONTH_SHEET_PATTERNS.WITH_YEAR);
+  if (withYear) {
+    const month = Number(withYear[2]);
+    if (month < 1 || month > 12) return null;
+    return { year: Number(withYear[1]), month: month };
+  }
+
+  const monthOnly = trimmed.match(CONFIG.MONTH_SHEET_PATTERNS.MONTH_ONLY);
+  if (monthOnly) {
+    const month = Number(monthOnly[1]);
+    if (month < 1 || month > 12) return null;
+    return { year: null, month: month };
+  }
+
+  return null;
+}
+
+/** 月別シートを、年月を確定させた状態で返す */
+function getMonthSheets(ss, today) {
+  const base = today || toDateOnly(new Date());
   const result = [];
   ss.getSheets().forEach(sheet => {
-    const matched = sheet.getName().trim().match(CONFIG.MONTH_SHEET_PATTERN);
-    if (!matched) return;
-    const month = Number(matched[1]);
-    if (month < 1 || month > 12) return;
-    result.push({ sheet: sheet, month: month });
+    const parsed = parseMonthSheetName(sheet.getName());
+    if (!parsed) return;
+    result.push({
+      sheet: sheet,
+      month: parsed.month,
+      year: parsed.year !== null ? parsed.year : resolveYearForMonth(parsed.month, base),
+    });
   });
-  result.sort((a, b) => a.month - b.month);
+  result.sort((a, b) => a.year - b.year || a.month - b.month);
   return result;
+}
+
+/** 指定した年月のシートを探す。「2026年8月」「8月」どちらの名前でも見つかる */
+function findMonthSheet(ss, year, month, today) {
+  const entries = getMonthSheets(ss, today);
+  for (let i = 0; i < entries.length; i++) {
+    if (entries[i].year === year && entries[i].month === month) return entries[i].sheet;
+  }
+  return null;
 }
 
 /**

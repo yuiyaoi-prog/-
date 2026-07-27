@@ -91,6 +91,27 @@ const jan2027 = new Date(2027, 0, 10);
 eq('1月時点の「12月」→2026', resolveYearForMonth(12, jan2027), 2026);
 
 // ---------------------------------------------------------------------------
+console.log('\n=== シート名の解釈 ===');
+eq('2026年8月',  parseMonthSheetName('2026年8月'),  { year: 2026, month: 8 });
+eq('2026年12月', parseMonthSheetName('2026年12月'), { year: 2026, month: 12 });
+eq('8月（年なし）', parseMonthSheetName('8月'),      { year: null, month: 8 });
+eq('前後に空白',  parseMonthSheetName(' 2026年9月 '), { year: 2026, month: 9 });
+eq('日程管理',    parseMonthSheetName('日程管理'),   null);
+eq('13月は不正',  parseMonthSheetName('2026年13月'), null);
+eq('2026年',      parseMonthSheetName('2026年'),     null);
+
+console.log('\n=== 別名の記号ゆれ（診断の誤検知防止） ===');
+const looseRelated = (name, alias) => {
+  const a = normalizeLoose(name);
+  const b = normalizeLoose(alias);
+  return a.indexOf(b) !== -1 || b.indexOf(a) !== -1;
+};
+eq('（渋谷）と_渋谷は同一視', looseRelated('ボンボンクリニック（渋谷）', 'ボンボンクリニック_渋谷'), true);
+eq('（横浜）と_横浜は同一視', looseRelated('ボンボンクリニック（横浜）', 'ボンボンクリニック_横浜'), true);
+eq('NAS（スポーツクラブ）とNAS', looseRelated('NAS（スポーツクラブ）', 'NAS'), true);
+eq('KINSプライム（下川さん）', looseRelated('KINSプライム（下川さん）', 'KINSプライム'), true);
+eq('無関係なものは検知する', looseRelated('シースタンド', 'ボンボン横浜'), false);
+
 console.log('\n=== セル統合（8月シート / 本日=2026-08-10） ===');
 const ctx = { year: 2026, month: 8, today: new Date(2026, 7, 10) };
 eq('空セルに1件',          mergeDateCell('', ['8/20'], ctx),           '8/20');

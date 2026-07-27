@@ -55,24 +55,27 @@ function checkSpreadsheet(lines) {
   lines.push(`    シート一覧: ${names.join(' / ')}`);
 
   const today = toDateOnly(new Date());
-  const monthSheets = getMonthSheets(ss);
+  const monthSheets = getMonthSheets(ss, today);
   if (monthSheets.length === 0) {
-    lines.push('NG  「8月」「9月」のような月別シートが1枚もありません');
-    lines.push('    → シート名を「8月」の形式に合わせてください');
+    lines.push('NG  「2026年8月」「8月」のような月別シートが1枚もありません');
+    lines.push('    → シート名を「2026年8月」または「8月」の形式に合わせてください');
     return ss;
   }
   lines.push(`OK  同期対象の月別シート ${monthSheets.length}枚:`);
   monthSheets.forEach(m => {
-    const year = resolveYearForMonth(m.month, today);
-    lines.push(`    ${m.sheet.getName()} → ${year}年${m.month}月の予定を取得します`);
+    lines.push(`    ${m.sheet.getName()} → ${m.year}年${m.month}月の予定を取得します`);
   });
 
+  const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
   [
-    { label: '当月', name: `${today.getMonth() + 1}月` },
-    { label: '翌月', name: `${new Date(today.getFullYear(), today.getMonth() + 1, 1).getMonth() + 1}月` },
+    { label: '当月', year: today.getFullYear(), month: today.getMonth() + 1 },
+    { label: '翌月', year: nextMonth.getFullYear(), month: nextMonth.getMonth() + 1 },
   ].forEach(t => {
-    if (names.indexOf(t.name) === -1) {
-      lines.push(`!!  ${t.label}シート「${t.name}」がありません（撮影アラートはこのシートを見ます）`);
+    if (!findMonthSheet(ss, t.year, t.month, today)) {
+      lines.push(
+        `!!  ${t.label}（${t.year}年${t.month}月）のシートがありません` +
+          '（撮影アラートはこのシートを見ます）'
+      );
     }
   });
   return ss;
@@ -99,11 +102,12 @@ function checkAliases(ss, lines) {
     lines.push(`    ${name}: ${aliasMap[name].join(' / ')}（${aliasMap[name].length}件）`);
   });
 
-  // 別名がクライアント名と全く無関係だと入れ違いの可能性がある
+  // 別名がクライアント名と全く無関係だと入れ違いの可能性がある。
+  // 「（渋谷）」と「_渋谷」のような記号違いで誤検知しないよう、記号を落として比べる。
   names.forEach(name => {
-    const normalizedName = normalizeText(name);
+    const normalizedName = normalizeLoose(name);
     const related = aliasMap[name].some(a => {
-      const na = normalizeText(a);
+      const na = normalizeLoose(a);
       return na && (normalizedName.indexOf(na) !== -1 || na.indexOf(normalizedName) !== -1);
     });
     if (!related) {

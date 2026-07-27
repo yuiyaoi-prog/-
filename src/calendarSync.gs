@@ -30,9 +30,9 @@ function runCalendarSync(isDryRun) {
   const today = toDateOnly(new Date());
   const aliasMap = buildAliasMap(ss);
 
-  const monthSheets = getMonthSheets(ss);
+  const monthSheets = getMonthSheets(ss, today);
   if (monthSheets.length === 0) {
-    console.log('「8月」「9月」のような月別シートが1枚も見つかりませんでした');
+    console.log('「2026年8月」「8月」のような月別シートが1枚も見つかりませんでした');
     return;
   }
   console.log(
@@ -41,21 +41,21 @@ function runCalendarSync(isDryRun) {
   );
 
   monthSheets.forEach(entry => {
-    syncMonthSheet(entry.sheet, entry.month, aliasMap, today, isDryRun);
+    syncMonthSheet(entry.sheet, entry.year, entry.month, aliasMap, today, isDryRun);
   });
 }
 
 /**
  * 月別シート1枚を同期する。
  * @param {Sheet} sheet 対象シート
+ * @param {number} year シート名から確定した年
  * @param {number} month シート名から読み取った月（1〜12）
  * @param {Object} aliasMap クライアント名 → 別名リスト
  * @param {Date} today 日付のみに丸めた本日
  * @param {boolean} isDryRun
  */
-function syncMonthSheet(sheet, month, aliasMap, today, isDryRun) {
+function syncMonthSheet(sheet, year, month, aliasMap, today, isDryRun) {
   const sheetName = sheet.getName();
-  const year = resolveYearForMonth(month, today);
 
   const clients = readClients(sheet).map(client => {
     const merged = aliasMap[client.name];

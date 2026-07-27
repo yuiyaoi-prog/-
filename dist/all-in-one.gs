@@ -67,8 +67,15 @@ const CONFIG = {
   /** 未確定アラートの判定対象とする種別（この種別の列が空欄ならアラート） */
   ALERT_KIND: '撮影',
 
-  /** 月別シートの名前（「8月」「12月」など） */
-  MONTH_SHEET_PATTERN: /^(\d{1,2})月$/,
+  /**
+   * 月別シートの名前。両方の書き方に対応する。
+   *   ・「2026年8月」… 年が書いてあるのでそのまま使う
+   *   ・「8月」      … 今日に一番近い年として解釈する
+   */
+  MONTH_SHEET_PATTERNS: {
+    WITH_YEAR: /^(\d{4})年(\d{1,2})月$/,
+    MONTH_ONLY: /^(\d{1,2})月$/,
+  },
 
   /**
    * 過去日になった日付をセルから取り除くか。
@@ -135,6 +142,15 @@ function normalizeText(value) {
     .replace(/[Ａ-Ｚａ-ｚ０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xfee0))
     .replace(/[\s　]/g, '')
     .toUpperCase();
+}
+
+/**
+ * normalizeText に加えて、括弧・アンダースコア・中黒などの記号も落とす。
+ * 「ボンボンクリニック（渋谷）」と「ボンボンクリニック_渋谷」を
+ * 同じものとして比べたいときに使う（診断の警告判定用）。
+ */
+function normalizeLoose(value) {
+  return normalizeText(value).replace(/[（）()「」『』【】\[\]{}_\-–—・､、。,.\/／|]/g, '');
 }
 
 /** D列のカンマ区切り文字列を別名の配列に分解する（全角カンマ・読点も区切りとして扱う） */
@@ -283,18 +299,55 @@ function readClients(sheet) {
   return clients;
 }
 
-/** 「8月」「12月」形式のシートを、月の数値つきで返す */
-function getMonthSheets(ss) {
+/**
+ * シート名を年月に分解する。月別シートでなければ null。
+ *   「2026年8月」→ { year: 2026, month: 8 }
+ *   「8月」      → { year: null, month: 8 }   ← 年は呼び出し側で解決する
+ */
+function parseMonthSheetName(name) {
+  const trimmed = String(name || '').trim();
+
+  const withYear = trimmed.match(CONFIG.MONTH_SHEET_PATTERNS.WITH_YEAR);
+  if (withYear) {
+    const month = Number(withYear[2]);
+    if (month < 1 || month > 12) return null;
+    return { year: Number(withYear[1]), month: month };
+  }
+
+  const monthOnly = trimmed.match(CONFIG.MONTH_SHEET_PATTERNS.MONTH_ONLY);
+  if (monthOnly) {
+    const month = Number(monthOnly[1]);
+    if (month < 1 || month > 12) return null;
+    return { year: null, month: month };
+  }
+
+  return null;
+}
+
+/** 月別シートを、年月を確定させた状態で返す */
+function getMonthSheets(ss, today) {
+  const base = today || toDateOnly(new Date());
   const result = [];
   ss.getSheets().forEach(sheet => {
-    const matched = sheet.getName().trim().match(CONFIG.MONTH_SHEET_PATTERN);
-    if (!matched) return;
-    const month = Number(matched[1]);
-    if (month < 1 || month > 12) return;
-    result.push({ sheet: sheet, month: month });
+    const parsed = parseMonthSheetName(sheet.getName());
+    if (!parsed) return;
+    result.push({
+      sheet: sheet,
+      month: parsed.month,
+      year: parsed.year !== null ? parsed.year : resolveYearForMonth(parsed.month, base),
+    });
   });
-  result.sort((a, b) => a.month - b.month);
+  result.sort((a, b) => a.year - b.year || a.month - b.month);
   return result;
+}
+
+/** 指定した年月のシートを探す。「2026年8月」「8月」どちらの名前でも見つかる */
+function findMonthSheet(ss, year, month, today) {
+  const entries = getMonthSheets(ss, today);
+  for (let i = 0; i < entries.length; i++) {
+    if (entries[i].year === year && entries[i].month === month) return entries[i].sheet;
+  }
+  return null;
 }
 
 /**
@@ -356,9 +409,9 @@ function runCalendarSync(isDryRun) {
   const today = toDateOnly(new Date());
   const aliasMap = buildAliasMap(ss);
 
-  const monthSheets = getMonthSheets(ss);
+  const monthSheets = getMonthSheets(ss, today);
   if (monthSheets.length === 0) {
-    console.log('「8月」「9月」のような月別シートが1枚も見つかりませんでした');
+    console.log('「2026年8月」「8月」のような月別シートが1枚も見つかりませんでした');
     return;
   }
   console.log(
@@ -367,21 +420,21 @@ function runCalendarSync(isDryRun) {
   );
 
   monthSheets.forEach(entry => {
-    syncMonthSheet(entry.sheet, entry.month, aliasMap, today, isDryRun);
+    syncMonthSheet(entry.sheet, entry.year, entry.month, aliasMap, today, isDryRun);
   });
 }
 
 /**
  * 月別シート1枚を同期する。
  * @param {Sheet} sheet 対象シート
+ * @param {number} year シート名から確定した年
  * @param {number} month シート名から読み取った月（1〜12）
  * @param {Object} aliasMap クライアント名 → 別名リスト
  * @param {Date} today 日付のみに丸めた本日
  * @param {boolean} isDryRun
  */
-function syncMonthSheet(sheet, month, aliasMap, today, isDryRun) {
+function syncMonthSheet(sheet, year, month, aliasMap, today, isDryRun) {
   const sheetName = sheet.getName();
-  const year = resolveYearForMonth(month, today);
 
   const clients = readClients(sheet).map(client => {
     const merged = aliasMap[client.name];
@@ -563,24 +616,26 @@ function writeResults(sheet, sheetName, clients, results, context, isDryRun) {
 function checkNextMonthShootSchedule() {
   const now = new Date();
   const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  const sheetName = `${nextMonth.getMonth() + 1}月`;
-  runCheck(sheetName, `【${sheetName}】撮影日程 初回確認（毎月25日）`);
+  runCheck(nextMonth.getFullYear(), nextMonth.getMonth() + 1, '初回確認（毎月25日）');
 }
 
 /** 毎週水曜：当月シートの撮影予定を週次チェック */
 function checkCurrentMonthShootScheduleWeekly() {
   const now = new Date();
-  const sheetName = `${now.getMonth() + 1}月`;
-  runCheck(sheetName, `【${sheetName}】撮影日程 週次確認（毎週水曜）`);
+  runCheck(now.getFullYear(), now.getMonth() + 1, '週次確認（毎週水曜）');
 }
 
-function runCheck(sheetName, headline) {
+function runCheck(year, month, timing) {
   const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
-  const sheet = ss.getSheetByName(sheetName);
+  const today = toDateOnly(new Date());
+  const sheet = findMonthSheet(ss, year, month, today);
   if (!sheet) {
-    console.log(`シート「${sheetName}」が見つかりませんでした（未作成の可能性があります）`);
+    console.log(`${year}年${month}月のシートが見つかりませんでした（未作成の可能性があります）`);
     return;
   }
+
+  const sheetName = sheet.getName();
+  const headline = `【${sheetName}】撮影日程 ${timing}`;
 
   const target = getTargetByKind(CONFIG.ALERT_KIND);
   if (!target) {
@@ -712,24 +767,27 @@ function checkSpreadsheet(lines) {
   lines.push(`    シート一覧: ${names.join(' / ')}`);
 
   const today = toDateOnly(new Date());
-  const monthSheets = getMonthSheets(ss);
+  const monthSheets = getMonthSheets(ss, today);
   if (monthSheets.length === 0) {
-    lines.push('NG  「8月」「9月」のような月別シートが1枚もありません');
-    lines.push('    → シート名を「8月」の形式に合わせてください');
+    lines.push('NG  「2026年8月」「8月」のような月別シートが1枚もありません');
+    lines.push('    → シート名を「2026年8月」または「8月」の形式に合わせてください');
     return ss;
   }
   lines.push(`OK  同期対象の月別シート ${monthSheets.length}枚:`);
   monthSheets.forEach(m => {
-    const year = resolveYearForMonth(m.month, today);
-    lines.push(`    ${m.sheet.getName()} → ${year}年${m.month}月の予定を取得します`);
+    lines.push(`    ${m.sheet.getName()} → ${m.year}年${m.month}月の予定を取得します`);
   });
 
+  const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
   [
-    { label: '当月', name: `${today.getMonth() + 1}月` },
-    { label: '翌月', name: `${new Date(today.getFullYear(), today.getMonth() + 1, 1).getMonth() + 1}月` },
+    { label: '当月', year: today.getFullYear(), month: today.getMonth() + 1 },
+    { label: '翌月', year: nextMonth.getFullYear(), month: nextMonth.getMonth() + 1 },
   ].forEach(t => {
-    if (names.indexOf(t.name) === -1) {
-      lines.push(`!!  ${t.label}シート「${t.name}」がありません（撮影アラートはこのシートを見ます）`);
+    if (!findMonthSheet(ss, t.year, t.month, today)) {
+      lines.push(
+        `!!  ${t.label}（${t.year}年${t.month}月）のシートがありません` +
+          '（撮影アラートはこのシートを見ます）'
+      );
     }
   });
   return ss;
@@ -756,11 +814,12 @@ function checkAliases(ss, lines) {
     lines.push(`    ${name}: ${aliasMap[name].join(' / ')}（${aliasMap[name].length}件）`);
   });
 
-  // 別名がクライアント名と全く無関係だと入れ違いの可能性がある
+  // 別名がクライアント名と全く無関係だと入れ違いの可能性がある。
+  // 「（渋谷）」と「_渋谷」のような記号違いで誤検知しないよう、記号を落として比べる。
   names.forEach(name => {
-    const normalizedName = normalizeText(name);
+    const normalizedName = normalizeLoose(name);
     const related = aliasMap[name].some(a => {
-      const na = normalizeText(a);
+      const na = normalizeLoose(a);
       return na && (normalizedName.indexOf(na) !== -1 || na.indexOf(normalizedName) !== -1);
     });
     if (!related) {

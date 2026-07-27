@@ -20,24 +20,26 @@
 function checkNextMonthShootSchedule() {
   const now = new Date();
   const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  const sheetName = `${nextMonth.getMonth() + 1}月`;
-  runCheck(sheetName, `【${sheetName}】撮影日程 初回確認（毎月25日）`);
+  runCheck(nextMonth.getFullYear(), nextMonth.getMonth() + 1, '初回確認（毎月25日）');
 }
 
 /** 毎週水曜：当月シートの撮影予定を週次チェック */
 function checkCurrentMonthShootScheduleWeekly() {
   const now = new Date();
-  const sheetName = `${now.getMonth() + 1}月`;
-  runCheck(sheetName, `【${sheetName}】撮影日程 週次確認（毎週水曜）`);
+  runCheck(now.getFullYear(), now.getMonth() + 1, '週次確認（毎週水曜）');
 }
 
-function runCheck(sheetName, headline) {
+function runCheck(year, month, timing) {
   const ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
-  const sheet = ss.getSheetByName(sheetName);
+  const today = toDateOnly(new Date());
+  const sheet = findMonthSheet(ss, year, month, today);
   if (!sheet) {
-    console.log(`シート「${sheetName}」が見つかりませんでした（未作成の可能性があります）`);
+    console.log(`${year}年${month}月のシートが見つかりませんでした（未作成の可能性があります）`);
     return;
   }
+
+  const sheetName = sheet.getName();
+  const headline = `【${sheetName}】撮影日程 ${timing}`;
 
   const target = getTargetByKind(CONFIG.ALERT_KIND);
   if (!target) {
