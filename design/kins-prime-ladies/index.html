@@ -1,0 +1,1247 @@
+<title>KINS PRIME LADIES ｜ デザイン案</title>
+
+<style>
+  /* ============================================================
+     KINS PRIME LADIES — design mockup
+     Palette: mulberry / koji gold / moss on a mauve-warm ground
+     ============================================================ */
+
+  :root {
+    --ground:      #F6F1F0;
+    --ground-deep: #EFE6E5;
+    --surface:     #FFFBFA;
+    --ink:         #33222B;
+    --ink-soft:    #6B5560;
+    --ink-faint:   #93808A;
+    --line:        #E4D8D8;
+    --accent:      #9A3F5E;
+    --accent-soft: #C9788F;
+    --accent-wash: #F3E4E8;
+    --koji:        #B98726;
+    --koji-wash:   #F5EAD3;
+    --moss:        #6E8161;
+    --line-green:  #06C755;
+    --shadow:      0 1px 2px rgba(51,34,43,.05), 0 12px 32px -18px rgba(51,34,43,.28);
+
+    /* flora ring hues */
+    --f1: #9A3F5E;
+    --f2: #C9788F;
+    --f3: #D9A441;
+    --f4: #7E9070;
+    --f5: #B4746A;
+    --f6: #7A6A8C;
+
+    --serif: "Hiragino Mincho ProN", "HiraMinProN-W3", "Yu Mincho", YuMincho, "Noto Serif JP", "Songti SC", "Times New Roman", serif;
+    --sans:  "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+    --latin: "Avenir Next", "Futura", "Trebuchet MS", system-ui, sans-serif;
+
+    --wrap: 680px;
+    --gutter: clamp(20px, 5vw, 40px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:      #1E1418;
+      --ground-deep: #170F13;
+      --surface:     #281B21;
+      --ink:         #F4E9EA;
+      --ink-soft:    #C3AEB5;
+      --ink-faint:   #917B84;
+      --line:        #3E2C34;
+      --accent:      #E08AA3;
+      --accent-soft: #C9788F;
+      --accent-wash: #38222B;
+      --koji:        #E6BC6A;
+      --koji-wash:   #362A1A;
+      --moss:        #9BAE8C;
+      --shadow:      0 1px 2px rgba(0,0,0,.3), 0 16px 40px -20px rgba(0,0,0,.7);
+      --f1: #E08AA3;
+      --f2: #C9788F;
+      --f3: #E6BC6A;
+      --f4: #9BAE8C;
+      --f5: #CD8C82;
+      --f6: #9C8BB0;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #1E1418;
+    --ground-deep: #170F13;
+    --surface:     #281B21;
+    --ink:         #F4E9EA;
+    --ink-soft:    #C3AEB5;
+    --ink-faint:   #917B84;
+    --line:        #3E2C34;
+    --accent:      #E08AA3;
+    --accent-soft: #C9788F;
+    --accent-wash: #38222B;
+    --koji:        #E6BC6A;
+    --koji-wash:   #362A1A;
+    --moss:        #9BAE8C;
+    --shadow:      0 1px 2px rgba(0,0,0,.3), 0 16px 40px -20px rgba(0,0,0,.7);
+    --f1: #E08AA3; --f2: #C9788F; --f3: #E6BC6A;
+    --f4: #9BAE8C; --f5: #CD8C82; --f6: #9C8BB0;
+  }
+
+  :root[data-theme="light"] {
+    --ground:      #F6F1F0;
+    --ground-deep: #EFE6E5;
+    --surface:     #FFFBFA;
+    --ink:         #33222B;
+    --ink-soft:    #6B5560;
+    --ink-faint:   #93808A;
+    --line:        #E4D8D8;
+    --accent:      #9A3F5E;
+    --accent-soft: #C9788F;
+    --accent-wash: #F3E4E8;
+    --koji:        #B98726;
+    --koji-wash:   #F5EAD3;
+    --moss:        #6E8161;
+    --shadow:      0 1px 2px rgba(51,34,43,.05), 0 12px 32px -18px rgba(51,34,43,.28);
+    --f1: #9A3F5E; --f2: #C9788F; --f3: #D9A441;
+    --f4: #7E9070; --f5: #B4746A; --f6: #7A6A8C;
+  }
+
+  /* ---------- base ---------- */
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.9;
+    font-feature-settings: "palt" 1;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 84px;
+  }
+
+  @media (min-width: 761px) { body { padding-bottom: 0; } }
+
+  p { margin: 0; }
+  a { color: inherit; }
+
+  ::selection { background: var(--accent-wash); }
+
+  :where(a, button, summary, input):focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .wrap {
+    width: min(100% - var(--gutter) * 2, var(--wrap));
+    margin-inline: auto;
+  }
+
+  /* only the nav breaks out of the single page column */
+  .wrap--wide { width: min(100% - var(--gutter) * 2, 920px); }
+
+  /* Section rhythm lives here and nowhere else.
+     Every band owns its padding; a plain band following another band drops its
+     top padding so the previous band's bottom padding is the single gap.
+     Bands with their own background keep both sides. */
+  .band { padding-block: clamp(56px, 11vw, 104px); }
+  .band + .band:not(.band--tinted):not(.closing) { padding-top: 0; }
+  .band--tinted { background: var(--ground-deep); }
+
+  /* ---------- type ---------- */
+
+  .eyebrow {
+    font-family: var(--latin);
+    font-size: .6875rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+  }
+  .eyebrow::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    text-wrap: balance;
+    margin: 0;
+    line-height: 1.5;
+    letter-spacing: .01em;
+  }
+  h1 { font-size: clamp(1.5rem, 6.5vw, 2.65rem); line-height: 1.45; }
+  h2 { font-size: clamp(1.4rem, 4.6vw, 1.9rem); }
+  h3 { font-size: 1.0625rem; line-height: 1.7; }
+
+  .lead { color: var(--ink-soft); font-size: .9375rem; }
+  .small { font-size: .8125rem; color: var(--ink-faint); line-height: 1.8; }
+
+  .stack   { display: flex; flex-direction: column; gap: 20px; }
+  .stack-s { display: flex; flex-direction: column; gap: 12px; }
+  .stack-l { display: flex; flex-direction: column; gap: 36px; }
+
+  .mark { color: var(--accent); font-weight: 700; }
+  .under {
+    background: linear-gradient(transparent 62%, var(--koji-wash) 62%);
+    padding-inline: .1em;
+  }
+
+  /* ---------- nav ---------- */
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: color-mix(in srgb, var(--ground) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav__in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 12px;
+  }
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-family: var(--latin);
+    letter-spacing: .16em;
+    font-size: .8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .logo b { font-weight: 700; }
+  .logo span {
+    font-size: .625rem;
+    letter-spacing: .3em;
+    color: var(--accent);
+  }
+  .mockpill {
+    font-family: var(--latin);
+    font-size: .5625rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+
+  /* ---------- buttons ---------- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 100px;
+    padding: 16px 26px;
+    font-family: var(--sans);
+    font-size: .9375rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1.4;
+    text-align: center;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn--line {
+    background: var(--line-green);
+    color: #052E13;
+    box-shadow: 0 10px 24px -12px rgba(6,199,85,.75);
+  }
+  .btn--line:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(6,199,85,.85); }
+  .btn--ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    font-weight: 600;
+  }
+  .btn--ghost:hover { background: var(--surface); }
+  .btn--sm { padding: 9px 16px; font-size: .8125rem; white-space: nowrap; }
+  /* the sticky bottom bar already carries the CTA on small screens */
+  .nav .btn--line { display: none; }
+  @media (min-width: 761px) { .nav .btn--line { display: inline-flex; } }
+  .btn--block { width: 100%; }
+  .btn__icon {
+    width: 18px; height: 18px; flex: none;
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(40px, 9vw, 76px) clamp(48px, 10vw, 88px);
+  }
+  .hero__glow {
+    position: absolute;
+    inset: -30% -10% auto -10%;
+    height: 620px;
+    background:
+      radial-gradient(46% 52% at 22% 30%, color-mix(in srgb, var(--f2) 30%, transparent), transparent 70%),
+      radial-gradient(40% 46% at 82% 18%, color-mix(in srgb, var(--f3) 24%, transparent), transparent 70%),
+      radial-gradient(50% 50% at 60% 66%, color-mix(in srgb, var(--f6) 18%, transparent), transparent 72%);
+    filter: blur(10px);
+    pointer-events: none;
+  }
+  .hero__in { position: relative; display: flex; flex-direction: column; gap: 26px; }
+
+  .ring {
+    width: min(230px, 56vw);
+    aspect-ratio: 1;
+    align-self: center;
+    display: block;
+  }
+  .hero__ring-wrap {
+    position: relative;
+    align-self: center;
+    display: grid;
+    place-items: center;
+  }
+  .hero__ring-label {
+    position: absolute;
+    text-align: center;
+    font-family: var(--serif);
+    line-height: 1.5;
+    padding: 26px 18px;
+    /* keeps the label legible where the ring strokes pass behind it */
+    background: radial-gradient(closest-side, var(--ground) 58%, color-mix(in srgb, var(--ground) 0%, transparent) 100%);
+  }
+  .hero__ring-label b {
+    display: block;
+    font-family: var(--latin);
+    font-size: 1.75rem;
+    letter-spacing: .04em;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+  }
+  .hero__ring-label span {
+    font-family: var(--latin);
+    font-size: .625rem;
+    color: var(--ink-soft);
+    letter-spacing: .18em;
+  }
+
+  .hero h1 { text-align: center; }
+  .hero .lead { text-align: center; }
+
+  .cta-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: var(--shadow);
+  }
+  .cta-card__free {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--serif);
+  }
+  .cta-card__free b {
+    font-family: var(--latin);
+    font-size: 2rem;
+    color: var(--koji);
+    letter-spacing: .02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .cta-card__free s { color: var(--ink-faint); font-size: .8125rem; text-decoration-thickness: 1px; }
+  .cta-note {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 14px;
+    margin: 0;
+    padding: 0;
+    font-size: .75rem;
+    color: var(--ink-faint);
+  }
+  .cta-note li { list-style: none; display: flex; align-items: center; gap: 5px; }
+  .cta-note li::before {
+    content: "";
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--moss);
+  }
+
+  /* ---------- checklist ---------- */
+
+  .checks { display: flex; flex-direction: column; gap: 2px; }
+  .check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: .9375rem;
+    transition: background .16s ease;
+    border: 1px solid transparent;
+  }
+  .check:hover { background: var(--surface); }
+  .check input { position: absolute; opacity: 0; pointer-events: none; }
+  .check__box {
+    flex: none;
+    width: 20px; height: 20px;
+    margin-top: 3px;
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+    display: grid;
+    place-items: center;
+    transition: background .16s ease, border-color .16s ease;
+  }
+  .check__box::after {
+    content: "";
+    width: 9px; height: 5px;
+    border-left: 2px solid var(--surface);
+    border-bottom: 2px solid var(--surface);
+    transform: rotate(-45deg) scale(.4);
+    opacity: 0;
+    transition: opacity .16s ease, transform .16s ease;
+  }
+  .check input:checked + .check__box {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .check input:checked + .check__box::after { opacity: 1; transform: rotate(-45deg) scale(1); }
+  .check:has(input:checked) { background: var(--accent-wash); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }
+  .check input:focus-visible + .check__box { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .tally {
+    margin-top: 8px;
+    border-top: 1px dashed var(--line);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .tally__count {
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+  }
+  .tally__count b {
+    font-family: var(--latin);
+    font-size: 1.75rem;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    padding-inline: 2px;
+  }
+  .tally__msg { font-size: .875rem; color: var(--ink-soft); }
+  .tally__cta[hidden] { display: none; }
+
+  /* ---------- cards ---------- */
+
+  .cards { display: grid; gap: 14px; }
+  @media (min-width: 780px) { .cards--3 { grid-template-columns: repeat(3, 1fr); } }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card__label {
+    font-family: var(--latin);
+    font-size: .625rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* misconception rows */
+  .miss { display: flex; flex-direction: column; gap: 0; }
+  .miss__row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .miss__row:first-child { border-top: 1px solid var(--line); }
+  .miss__x {
+    font-family: var(--latin);
+    font-size: .75rem;
+    letter-spacing: .1em;
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    border-radius: 100px;
+    padding: 2px 10px;
+    margin-top: 3px;
+    white-space: nowrap;
+  }
+  .miss__row p + p { margin-top: 6px; }
+
+  /* ---------- report mock ---------- */
+
+  .report {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .report__head {
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--ground-deep);
+  }
+  .report__head b { font-family: var(--serif); font-size: .9375rem; }
+  .report__body { padding: 22px; display: flex; flex-direction: column; gap: 24px; }
+
+  .metric { display: flex; flex-direction: column; gap: 8px; }
+  .metric__top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: .8125rem;
+    color: var(--ink-soft);
+  }
+  .metric__val {
+    font-family: var(--latin);
+    font-size: 1.375rem;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .02em;
+  }
+  .metric__val i { font-style: normal; font-size: .75rem; color: var(--ink-faint); }
+  .meter {
+    height: 8px;
+    border-radius: 100px;
+    background: var(--ground-deep);
+    overflow: hidden;
+    position: relative;
+  }
+  .meter i {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--f2), var(--accent));
+    display: block;
+  }
+  .meter--sub i { background: linear-gradient(90deg, var(--f3), var(--f5)); }
+
+  .stackbar {
+    display: flex;
+    height: 26px;
+    border-radius: 8px;
+    overflow: hidden;
+    gap: 2px;
+  }
+  .stackbar span { display: block; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    font-size: .75rem;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .legend b { display: inline-flex; align-items: center; gap: 6px; font-weight: 400; }
+  .legend i {
+    width: 9px; height: 9px; border-radius: 3px; display: inline-block;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 6px 13px;
+    font-size: .8125rem;
+    background: var(--ground);
+  }
+  .chip--good { border-color: color-mix(in srgb, var(--moss) 45%, transparent); color: var(--moss); }
+
+  .badge-status {
+    font-family: var(--latin);
+    font-size: .625rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--koji-wash);
+    color: var(--koji);
+    white-space: nowrap;
+  }
+
+  /* ---------- steps ---------- */
+
+  .steps { display: flex; flex-direction: column; gap: 0; counter-reset: s; }
+  .step {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 18px;
+    padding-bottom: 30px;
+    position: relative;
+  }
+  .step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 44px;
+    bottom: 6px;
+    width: 1px;
+    background: var(--line);
+  }
+  .step__num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    display: grid;
+    place-items: center;
+    font-family: var(--latin);
+    font-size: .8125rem;
+    letter-spacing: .06em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    position: relative;
+    z-index: 1;
+  }
+  .step__body { display: flex; flex-direction: column; gap: 6px; padding-top: 6px; }
+  .step__when {
+    font-family: var(--latin);
+    font-size: .625rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- voices ---------- */
+
+  .voice {
+    border-left: 2px solid var(--accent-soft);
+    padding: 4px 0 4px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .voice q {
+    font-family: var(--serif);
+    font-size: 1rem;
+    line-height: 1.85;
+    quotes: "「" "」";
+  }
+  .voice cite {
+    font-style: normal;
+    font-size: .75rem;
+    color: var(--ink-faint);
+    letter-spacing: .04em;
+  }
+
+  /* ---------- faq ---------- */
+
+  .faq { border-top: 1px solid var(--line); }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 34px 18px 0;
+    position: relative;
+    font-size: .9375rem;
+    font-weight: 700;
+    line-height: 1.7;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: 27px;
+    width: 9px; height: 9px;
+    border-right: 1.5px solid var(--accent);
+    border-bottom: 1.5px solid var(--accent);
+    transform: rotate(45deg);
+    transition: transform .2s ease;
+  }
+  .faq details[open] summary::after { transform: rotate(225deg); top: 30px; }
+  .faq p { padding: 0 0 20px; font-size: .875rem; color: var(--ink-soft); }
+
+  /* ---------- closing ---------- */
+
+  .closing {
+    background: var(--ground-deep);
+    position: relative;
+    overflow: hidden;
+  }
+  .closing__glow {
+    position: absolute;
+    inset: auto -20% -60% -20%;
+    height: 420px;
+    background:
+      radial-gradient(45% 60% at 30% 60%, color-mix(in srgb, var(--f2) 28%, transparent), transparent 70%),
+      radial-gradient(45% 60% at 74% 40%, color-mix(in srgb, var(--f3) 20%, transparent), transparent 70%);
+    filter: blur(12px);
+    pointer-events: none;
+  }
+  .closing .wrap { position: relative; }
+
+  /* ---------- sticky mobile bar ---------- */
+
+  .sticky {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 50;
+    padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+    background: color-mix(in srgb, var(--ground) 92%, transparent);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+  }
+  .sticky__in { width: min(100%, var(--wrap)); margin-inline: auto; display: flex; flex-direction: column; gap: 4px; }
+  .sticky .small { text-align: center; font-size: .6875rem; }
+  @media (min-width: 761px) { .sticky { display: none; } }
+
+  /* ---------- footer ---------- */
+
+  .foot {
+    border-top: 1px solid var(--line);
+    padding-block: 34px 44px;
+    font-size: .75rem;
+    color: var(--ink-faint);
+    line-height: 1.9;
+  }
+  .foot__note {
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    color: var(--ink-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  @media print {
+    body { padding-bottom: 0; background: #fff; }
+    .nav, .sticky { display: none; }
+    .band { padding-block: 24px; break-inside: avoid; }
+    .card, .report, .step { break-inside: avoid; }
+    .hero__glow, .closing__glow { display: none; }
+  }
+</style>
+
+<header class="nav">
+  <div class="wrap wrap--wide nav__in">
+    <a class="logo" href="#top">
+      <b>KINS PRIME</b><span>LADIES</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span class="mockpill">Design mock</span>
+      <a class="btn btn--line btn--sm" href="#cta">無料で申し込む</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="wrap hero__in">
+
+      <div class="hero__ring-wrap">
+        <canvas class="ring" id="floraRing" aria-label="腸内フローラの構成を表した円環のイメージ" role="img"></canvas>
+        <div class="hero__ring-label" aria-hidden="true">
+          <b>1,000兆</b>
+          <span>YOUR GUT FLORA</span>
+        </div>
+      </div>
+
+      <h1>その不調、<br>「がんばり不足」じゃなくて<br><span class="mark">腸内フローラ</span>のせいかも。</h1>
+
+      <p class="lead">
+        便秘、ぽっこりお腹、肌のゆらぎ、朝のだるさ。
+        35歳を過ぎて増えるこの手の不調は、生活習慣より先に<strong>腸内細菌のバランス</strong>が変わっているサインのことがあります。
+        まずは、あなたのお腹の中を見てみませんか。
+      </p>
+
+      <div class="cta-card" id="cta">
+        <p class="eyebrow" style="justify-content:center">Launch campaign</p>
+        <div class="cta-card__free">
+          <span>腸内フローラ検査</span>
+          <b>¥0</b>
+          <s>¥39,800</s>
+        </div>
+        <a class="btn btn--line btn--block" href="#cta">
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.2 7.9.3.07.75.22.86.5.1.26.07.66.03.92l-.14.83c-.04.25-.2.96.85.53 1.05-.44 5.65-3.33 7.7-5.7C20.9 14.4 22 12.8 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+          LINEで無料検査に申し込む
+        </a>
+        <ul class="cta-note">
+          <li>申し込み3分</li>
+          <li>キットは自宅に届く</li>
+          <li>クレカ登録なし</li>
+        </ul>
+      </div>
+
+      <p class="small" style="text-align:center">
+        ※ 先着1,000名の初回モニター枠。定員に達し次第終了します。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CHECKLIST ============ -->
+  <section class="band band--tinted">
+    <div class="wrap stack-l">
+      <div class="stack-s">
+        <p class="eyebrow">Check</p>
+        <h2>思い当たること、<br>いくつありますか。</h2>
+        <p class="lead">当てはまるものをタップしてください。</p>
+      </div>
+
+      <div class="checks" id="checks">
+        <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"></span><span>3日以上、お通じがない日がある</span></label>
+        <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"></span><span>食べる量は変わっていないのに、お腹まわりだけ落ちない</span></label>
+        <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"></span><span>夕方になるとお腹が張って、服がきつい</span></label>
+        <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"></span><span>寝ても、疲れが翌朝に残る</span></label>
+        <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"></span><span>あごまわりの肌荒れが、周期と関係なく出る</span></label>
+        <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"></span><span>生理前後の気分の落ち込みが、以前より重い</span></label>
+        <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"></span><span>ヨーグルトも食物繊維も試したが、実感がなかった</span></label>
+      </div>
+
+      <div class="tally" aria-live="polite">
+        <p class="tally__count"><b id="tallyNum">0</b>個、当てはまりました。</p>
+        <p class="tally__msg" id="tallyMsg">気になるものをタップしてみてください。</p>
+        <div class="tally__cta" id="tallyCta" hidden>
+          <a class="btn btn--line btn--block" href="#cta">まずは無料で腸内フローラを調べる</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY 35 ============ -->
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack-s">
+        <p class="eyebrow">Why now</p>
+        <h2>35歳から、<br>お腹の中は静かに入れ替わる。</h2>
+        <p class="lead">
+          年齢とともに変わるのは、代謝や肌だけではありません。
+          腸内細菌の<strong>種類の豊かさ（多様性）</strong>と<strong>構成比</strong>が変化し、これまでと同じ食事・同じ習慣でも、同じ結果が出にくくなります。
+        </p>
+      </div>
+
+      <div class="cards cards--3">
+        <div class="card">
+          <p class="card__label">Diversity</p>
+          <h3>菌の種類が減る</h3>
+          <p class="small">多様性が下がると、食物繊維を分解できる菌の層が薄くなり、便のかさと水分が保ちにくくなります。</p>
+        </div>
+        <div class="card">
+          <p class="card__label">Hormone</p>
+          <h3>ホルモンと連動する</h3>
+          <p class="small">腸内細菌はエストロゲンの代謝にも関わります。ゆらぎの時期に腸の調子が動くのは、偶然ではありません。</p>
+        </div>
+        <div class="card">
+          <p class="card__label">Short-chain fatty acid</p>
+          <h3>短鎖脂肪酸が減る</h3>
+          <p class="small">腸のぜん動運動や代謝を支える物質。つくる菌が少ないと、食べる量を減らしても変化が出にくくなります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MISCONCEPTIONS ============ -->
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack-s">
+        <p class="eyebrow">The gap</p>
+        <h2>「体にいい腸活」より、<br>「私に合う腸活」を。</h2>
+        <p class="lead">腸内細菌の構成は指紋のように一人ひとり違います。だから、同じ方法が全員に効くことはありません。</p>
+      </div>
+
+      <div class="miss">
+        <div class="miss__row">
+          <span class="miss__x">毎朝ヨーグルト</span>
+          <div>
+            <p>その菌が、あなたの腸に定着するとは限らない。</p>
+            <p class="small">もともと持っている菌との相性で、通過するだけで終わることがあります。</p>
+          </div>
+        </div>
+        <div class="miss__row">
+          <span class="miss__x">食物繊維を増やす</span>
+          <div>
+            <p>種類を間違えると、張りと不快感が強くなる。</p>
+            <p class="small">水溶性・不溶性のどちらが足りていないかは、菌の構成によって変わります。</p>
+          </div>
+        </div>
+        <div class="miss__row">
+          <span class="miss__x">とりあえずサプリ</span>
+          <div>
+            <p>足りないものが分からないまま、足し算を続けてしまう。</p>
+            <p class="small">まず引き算すべき習慣が見つかるケースも少なくありません。</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="lead" style="text-align:center">
+        <span class="under">推測をやめて、一度きちんと調べる。</span><br>
+        遠回りに見えて、これがいちばん早い道です。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ REPORT MOCK ============ -->
+  <section class="band band--tinted">
+    <div class="wrap stack-l">
+      <div class="stack-s">
+        <p class="eyebrow">Your report</p>
+        <h2>結果は、こんなふうに届きます。</h2>
+        <p class="lead">数値を見せて終わりにはしません。明日から何を食べ、何をやめるかまで、あなたのデータから提案します。</p>
+      </div>
+
+      <div class="report">
+        <div class="report__head">
+          <b>MY FLORA REPORT</b>
+          <span class="badge-status">Sample</span>
+        </div>
+        <div class="report__body">
+
+          <div class="metric">
+            <div class="metric__top">
+              <span>多様性スコア</span>
+              <span class="metric__val">62<i> / 100</i></span>
+            </div>
+            <div class="meter"><i style="width:62%"></i></div>
+            <p class="small">同年代の平均は 71。菌の種類がやや少なめです。</p>
+          </div>
+
+          <div class="metric">
+            <div class="metric__top">
+              <span>短鎖脂肪酸の産生能</span>
+              <span class="metric__val">38<i> / 100</i></span>
+            </div>
+            <div class="meter meter--sub"><i style="width:38%"></i></div>
+            <p class="small">つくる力が低下。お通じの回数と満腹感に影響しやすい状態です。</p>
+          </div>
+
+          <div class="metric">
+            <div class="metric__top" style="margin-bottom:2px">
+              <span>菌の構成比</span>
+              <span class="small" style="font-size:.6875rem">門レベル</span>
+            </div>
+            <div class="stackbar" role="img" aria-label="バクテロイデス門42パーセント、ファーミキューテス門38パーセント、アクチノバクテリア門11パーセント、その他9パーセント">
+              <span style="width:42%;background:var(--f1)"></span>
+              <span style="width:38%;background:var(--f3)"></span>
+              <span style="width:11%;background:var(--f4)"></span>
+              <span style="width:9%;background:var(--f6)"></span>
+            </div>
+            <div class="legend">
+              <b><i style="background:var(--f1)"></i>バクテロイデス 42%</b>
+              <b><i style="background:var(--f3)"></i>ファーミキューテス 38%</b>
+              <b><i style="background:var(--f4)"></i>アクチノ 11%</b>
+              <b><i style="background:var(--f6)"></i>その他 9%</b>
+            </div>
+          </div>
+
+          <div class="stack-s">
+            <p class="card__label">あなたの菌が好む食材</p>
+            <div class="chips">
+              <span class="chip chip--good">もち麦</span>
+              <span class="chip chip--good">海藻</span>
+              <span class="chip chip--good">納豆</span>
+              <span class="chip chip--good">オリーブオイル</span>
+              <span class="chip chip--good">ごぼう</span>
+            </div>
+          </div>
+
+          <div class="stack-s">
+            <p class="card__label">今月やめること</p>
+            <div class="chips">
+              <span class="chip">22時以降の食事</span>
+              <span class="chip">朝食を抜く日</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <p class="small">※ 表示している数値・提案はサンプルです。実際の結果は検体をもとに算出されます。</p>
+    </div>
+  </section>
+
+  <!-- ============ STEPS ============ -->
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack-s">
+        <p class="eyebrow">How it works</p>
+        <h2>申し込みから結果まで、<br>3ステップ。</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">01</div>
+          <div class="step__body">
+            <p class="step__when">Day 0 ・ 3分</p>
+            <h3>LINEで友だち追加して、質問に答える</h3>
+            <p class="small">お悩みと生活リズムを7問。ここまで無料、クレジットカードの登録もありません。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <div class="step__body">
+            <p class="step__when">Day 3–5 ・ 5分</p>
+            <h3>届いたキットで採取し、ポストに投函</h3>
+            <p class="small">中身がわからない封筒でお届け。トイレで完結し、返送も切手不要です。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <div class="step__body">
+            <p class="step__when">約4–6週間後</p>
+            <h3>結果とパーソナル提案がLINEに届く</h3>
+            <p class="small">読んで終わりにしないために、結果後も管理栄養士にLINEで相談できます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY FREE ============ -->
+  <section class="band">
+    <div class="wrap">
+      <div class="card" style="gap:14px">
+        <p class="card__label">Why free</p>
+        <h3>なぜ、無料なのか。</h3>
+        <p class="small" style="font-size:.875rem;color:var(--ink-soft)">
+          KINS PRIME LADIES は、日本の35歳以上の女性に特化した腸内フローラのデータをこれから積み上げていくところです。
+          そのため初回1,000名の方には、検査費用（¥39,800）をこちらで負担し、統計データとして匿名で活用させていただきます。
+          個人が特定される形での提供・販売は行いません。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VOICES ============ -->
+  <section class="band band--tinted">
+    <div class="wrap stack-l">
+      <div class="stack-s">
+        <p class="eyebrow">Voices</p>
+        <h2>調べてみて、<br>やっと腑に落ちた。</h2>
+      </div>
+
+      <div class="stack-l">
+        <div class="voice">
+          <q>10年ヨーグルトを食べ続けていたのに、私の腸にはその菌がほとんどいなかった。合っていなかったんだ、と分かっただけで気が楽になりました。</q>
+          <cite>38歳・会社員</cite>
+        </div>
+        <div class="voice">
+          <q>「痩せにくい」を年齢のせいにしていました。短鎖脂肪酸の数値を見てから、食べる時間を変えただけでお腹の張りが減っています。</q>
+          <cite>42歳・二児の母</cite>
+        </div>
+        <div class="voice">
+          <q>数値より、「今月やめること」が2つだけ書いてあったのが良かった。あれこれ足さなくていいんだ、と。</q>
+          <cite>45歳・自営業</cite>
+        </div>
+      </div>
+      <p class="small">※ 個人の感想であり、効果を保証するものではありません。掲載内容はデザイン確認用のサンプルです。</p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack-s">
+        <p class="eyebrow">FAQ</p>
+        <h2>よくあるご質問</h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>本当に費用はかかりませんか？</summary>
+          <p>初回モニター枠での検査費用・送料・返送料はすべて無料です。クレジットカードの登録も不要で、自動で有料プランに移行することはありません。</p>
+        </details>
+        <details>
+          <summary>採取はどうやってするのですか。</summary>
+          <p>ご自宅のトイレで、付属のスティックで少量を採取するだけです。5分ほどで終わり、そのままポストに投函できます。</p>
+        </details>
+        <details>
+          <summary>家族に知られたくないのですが。</summary>
+          <p>商品名が分からない無地の封筒でお届けします。差出人はKINS PRIME LADIESではなく、配送センター名で記載されます。</p>
+        </details>
+        <details>
+          <summary>生理中でも検査できますか。</summary>
+          <p>可能ですが、より安定した結果を得るために、月経期間を避けての採取をおすすめしています。キットの保管期限には余裕があります。</p>
+        </details>
+        <details>
+          <summary>妊娠中・通院中でも申し込めますか。</summary>
+          <p>検査自体は可能です。ただし治療中の方は、結果にもとづく食事の変更について、かかりつけの医師にご相談のうえお進めください。</p>
+        </details>
+        <details>
+          <summary>結果が出るまで、どのくらいかかりますか。</summary>
+          <p>検体到着からおおよそ4〜6週間です。解析の状況により前後する場合は、LINEでご連絡します。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="band closing">
+    <div class="closing__glow" aria-hidden="true"></div>
+    <div class="wrap stack">
+      <h2 style="text-align:center">推測で整えるのは、<br>今日で終わりにしませんか。</h2>
+      <p class="lead" style="text-align:center">まずは、自分のお腹の中を知るところから。</p>
+      <div class="cta-card">
+        <div class="cta-card__free">
+          <span>腸内フローラ検査</span>
+          <b>¥0</b>
+          <s>¥39,800</s>
+        </div>
+        <a class="btn btn--line btn--block" href="#cta">
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.2 7.9.3.07.75.22.86.5.1.26.07.66.03.92l-.14.83c-.04.25-.2.96.85.53 1.05-.44 5.65-3.33 7.7-5.7C20.9 14.4 22 12.8 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+          LINEで無料検査に申し込む
+        </a>
+        <p class="small" style="text-align:center">先着1,000名／申し込み3分／クレカ登録なし</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__note">
+      <strong>これはデザイン検討用のモックアップです。</strong><br>
+      株式会社KINSおよびKINS PRIMEの公式ページではありません。掲載している価格・数値・お客様の声・キャンペーン内容はすべてレイアウト確認用のダミーで、実在のサービス内容を示すものではありません。
+    </div>
+    <p>KINS PRIME LADIES ── tone &amp; manner study<br>2026</p>
+  </div>
+</footer>
+
+<div class="sticky">
+  <div class="sticky__in">
+    <a class="btn btn--line btn--block" href="#cta">
+      <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.2 7.9.3.07.75.22.86.5.1.26.07.66.03.92l-.14.83c-.04.25-.2.96.85.53 1.05-.44 5.65-3.33 7.7-5.7C20.9 14.4 22 12.8 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+      無料で腸内フローラ検査に申し込む
+    </a>
+    <p class="small">先着1,000名・クレカ登録なし</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- checklist tally ---------- */
+  var checks  = document.querySelectorAll("#checks input");
+  var num     = document.getElementById("tallyNum");
+  var msg     = document.getElementById("tallyMsg");
+  var ctaWrap = document.getElementById("tallyCta");
+
+  function update() {
+    var n = 0;
+    checks.forEach(function (c) { if (c.checked) n++; });
+    num.textContent = n;
+    if (n === 0)      msg.textContent = "気になるものをタップしてみてください。";
+    else if (n < 3)   msg.textContent = "その2つ、原因が同じところにあるかもしれません。";
+    else if (n < 5)   msg.textContent = "複数が同時に出ているときは、腸内フローラのバランスが関わっている可能性があります。";
+    else              msg.textContent = "ばらばらに見える不調が、ひとつの原因でつながっていることがあります。まず調べてみてください。";
+    ctaWrap.hidden = n < 3;
+  }
+  checks.forEach(function (c) { c.addEventListener("change", update); });
+  update();
+
+  /* ---------- hero flora ring ---------- */
+  var cv  = document.getElementById("floraRing");
+  var ctx = cv.getContext("2d");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // ring definition: [radius ratio, thickness, segment count, speed]
+  var rings = [
+    { r: 0.94, w: 7,  seg: 5, speed:  0.00022 },
+    { r: 0.80, w: 11, seg: 8, speed: -0.00034 },
+    { r: 0.64, w: 9,  seg: 6, speed:  0.00046 },
+    { r: 0.50, w: 5,  seg: 11, speed: -0.00028 }
+  ];
+
+  var hues = [];
+  function readHues() {
+    var cs = getComputedStyle(document.documentElement);
+    hues = ["--f1", "--f2", "--f3", "--f4", "--f5", "--f6"].map(function (v) {
+      return cs.getPropertyValue(v).trim() || "#9A3F5E";
+    });
+  }
+
+  var size = 0;
+  function resize() {
+    var rect = cv.getBoundingClientRect();
+    var dpr  = Math.min(window.devicePixelRatio || 1, 2);
+    size = rect.width;
+    cv.width  = Math.round(rect.width * dpr);
+    cv.height = Math.round(rect.width * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function draw(t) {
+    if (!size) return;
+    var c = size / 2;
+    ctx.clearRect(0, 0, size, size);
+    ctx.lineCap = "round";
+
+    rings.forEach(function (ring, ri) {
+      var radius = c * ring.r * 0.82;
+      var gap    = 0.16;
+      var arc    = (Math.PI * 2) / ring.seg;
+      var offset = t * ring.speed + ri * 0.7;
+
+      for (var i = 0; i < ring.seg; i++) {
+        var start = offset + i * arc;
+        // vary each segment's sweep so the ring reads as a colony, not a pie chart
+        var sweep = arc * (1 - gap) * (0.55 + 0.45 * Math.abs(Math.sin(i * 1.7 + ri)));
+        ctx.beginPath();
+        ctx.strokeStyle = hues[(i + ri * 2) % hues.length];
+        ctx.globalAlpha = 0.32 + 0.5 * Math.abs(Math.sin(i * 0.9 + ri * 1.3));
+        ctx.lineWidth = ring.w * (size / 230);
+        ctx.arc(c, c, radius, start, start + sweep);
+        ctx.stroke();
+      }
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  var raf = null;
+  function loop(ts) {
+    draw(ts);
+    raf = requestAnimationFrame(loop);
+  }
+  function start() {
+    if (raf) cancelAnimationFrame(raf);
+    readHues();
+    resize();
+    if (reduce.matches) { draw(0); raf = null; }
+    else { raf = requestAnimationFrame(loop); }
+  }
+
+  window.addEventListener("resize", function () { resize(); if (reduce.matches) draw(0); });
+  reduce.addEventListener("change", start);
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+    setTimeout(start, 30);
+  });
+  new MutationObserver(function () { setTimeout(start, 30); })
+    .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  start();
+})();
+</script>
