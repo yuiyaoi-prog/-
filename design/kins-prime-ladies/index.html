@@ -2,38 +2,54 @@
 
 <style>
   /* ============================================================
-     KINS PRIME LADIES — design mockup
-     Palette: mulberry / koji gold / moss on a mauve-warm ground
+     KINS PRIME LADIES — design mockup (rev.2)
+
+     Palette and typography are taken from the live KINS brand:
+       yourkins.com       --textbrown #473732 / --lightbrown #82655d
+                          --borderpink #ddd4cc / --offcolor #f7f6f4
+                          accents #ffa780 #f9cc8c #c0a79c
+                          A1 Gothic (JP) + TT Firs Neue (Latin)
+       prime.yourkins.com near-black ground with a cyan→purple gradient
+     The PRIME gradient gesture is kept but rotated into the KINS warm
+     hues, so this reads as a PRIME sub-brand rather than a new company.
      ============================================================ */
 
   :root {
-    --ground:      #F6F1F0;
-    --ground-deep: #EFE6E5;
-    --surface:     #FFFBFA;
-    --ink:         #33222B;
-    --ink-soft:    #6B5560;
-    --ink-faint:   #93808A;
-    --line:        #E4D8D8;
-    --accent:      #9A3F5E;
-    --accent-soft: #C9788F;
-    --accent-wash: #F3E4E8;
-    --koji:        #B98726;
-    --koji-wash:   #F5EAD3;
-    --moss:        #6E8161;
+    --ground:      #F7F6F4;   /* KINS --offcolor   */
+    --ground-deep: #F1EEEA;
+    --surface:     #FFFFFF;
+    --ink:         #473732;   /* KINS --textbrown  */
+    --ink-soft:    #82655D;   /* KINS --lightbrown */
+    --ink-faint:   #A2938C;
+    --line:        #DDD4CC;   /* KINS --borderpink */
+    --coral:       #FFA780;
+    --apricot:     #F9CC8C;
+    --greige:      #C0A79C;
+    --accent:      #82655D;
+    --accent-wash: #F5EDE7;
     --line-green:  #06C755;
-    --shadow:      0 1px 2px rgba(51,34,43,.05), 0 12px 32px -18px rgba(51,34,43,.28);
+    --shadow:      0 1px 2px rgba(71,55,50,.04), 0 14px 34px -20px rgba(71,55,50,.32);
 
-    /* flora ring hues */
-    --f1: #9A3F5E;
-    --f2: #C9788F;
-    --f3: #D9A441;
-    --f4: #7E9070;
-    --f5: #B4746A;
-    --f6: #7A6A8C;
+    /* the PRIME gradient, rotated into KINS hues.
+       --prime-grad is for graphics (rules, meters, rings); the light apricot
+       end drops below 3:1 as text, so type uses the darkened -text variant. */
+    --prime-grad: linear-gradient(90deg, #F9CC8C 0%, #FFA780 52%, #C0A79C 100%);
+    --prime-grad-text: linear-gradient(90deg, #DE9440 0%, #D2703F 55%, #A0776B 100%);
 
-    --serif: "Hiragino Mincho ProN", "HiraMinProN-W3", "Yu Mincho", YuMincho, "Noto Serif JP", "Songti SC", "Times New Roman", serif;
-    --sans:  "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
-    --latin: "Avenir Next", "Futura", "Trebuchet MS", system-ui, sans-serif;
+    /* flora ring — drawn from the KINS accent family only */
+    --f1: #FFA780;
+    --f2: #F9CC8C;
+    --f3: #C0A79C;
+    --f4: #82655D;
+    --f5: #DDD4CC;
+    --f6: #E0D4CC;
+
+    /* A1 Gothic is the KINS face; system gothic stands in where it is
+       not served. KINS deliberately does not use mincho. */
+    --jp: "A1 Gothic M JIS2004", "A1 Gothic R JIS2004", "A1 Gothic M", "A1 Gothic R",
+          "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic,
+          "Noto Sans JP", sans-serif;
+    --latin: "TTFirsNeue", "Futura", "Avenir Next", "Trebuchet MS", system-ui, sans-serif;
 
     --wrap: 680px;
     --gutter: clamp(20px, 5vw, 40px);
@@ -41,65 +57,52 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --ground:      #1E1418;
-      --ground-deep: #170F13;
-      --surface:     #281B21;
-      --ink:         #F4E9EA;
-      --ink-soft:    #C3AEB5;
-      --ink-faint:   #917B84;
-      --line:        #3E2C34;
-      --accent:      #E08AA3;
-      --accent-soft: #C9788F;
-      --accent-wash: #38222B;
-      --koji:        #E6BC6A;
-      --koji-wash:   #362A1A;
-      --moss:        #9BAE8C;
-      --shadow:      0 1px 2px rgba(0,0,0,.3), 0 16px 40px -20px rgba(0,0,0,.7);
-      --f1: #E08AA3;
-      --f2: #C9788F;
-      --f3: #E6BC6A;
-      --f4: #9BAE8C;
-      --f5: #CD8C82;
-      --f6: #9C8BB0;
+      --ground:      #1F1A18;
+      --ground-deep: #171312;
+      --surface:     #2A2321;
+      --ink:         #F2EBE6;
+      --ink-soft:    #C6B3AA;
+      --ink-faint:   #9A8880;
+      --line:        #40332E;
+      --accent:      #E0B7A3;
+      --accent-wash: #352924;
+      --shadow:      0 1px 2px rgba(0,0,0,.3), 0 18px 44px -22px rgba(0,0,0,.75);
+      --prime-grad-text: linear-gradient(90deg, #F9CC8C 0%, #FFA780 55%, #D8C0B4 100%);
+      --f1: #FFA780; --f2: #F9CC8C; --f3: #C0A79C;
+      --f4: #A98878; --f5: #DDD4CC; --f6: #E0D4CC;
     }
   }
 
   :root[data-theme="dark"] {
-    --ground:      #1E1418;
-    --ground-deep: #170F13;
-    --surface:     #281B21;
-    --ink:         #F4E9EA;
-    --ink-soft:    #C3AEB5;
-    --ink-faint:   #917B84;
-    --line:        #3E2C34;
-    --accent:      #E08AA3;
-    --accent-soft: #C9788F;
-    --accent-wash: #38222B;
-    --koji:        #E6BC6A;
-    --koji-wash:   #362A1A;
-    --moss:        #9BAE8C;
-    --shadow:      0 1px 2px rgba(0,0,0,.3), 0 16px 40px -20px rgba(0,0,0,.7);
-    --f1: #E08AA3; --f2: #C9788F; --f3: #E6BC6A;
-    --f4: #9BAE8C; --f5: #CD8C82; --f6: #9C8BB0;
+    --ground:      #1F1A18;
+    --ground-deep: #171312;
+    --surface:     #2A2321;
+    --ink:         #F2EBE6;
+    --ink-soft:    #C6B3AA;
+    --ink-faint:   #9A8880;
+    --line:        #40332E;
+    --accent:      #E0B7A3;
+    --accent-wash: #352924;
+    --shadow:      0 1px 2px rgba(0,0,0,.3), 0 18px 44px -22px rgba(0,0,0,.75);
+    --prime-grad-text: linear-gradient(90deg, #F9CC8C 0%, #FFA780 55%, #D8C0B4 100%);
+    --f1: #FFA780; --f2: #F9CC8C; --f3: #C0A79C;
+    --f4: #A98878; --f5: #DDD4CC; --f6: #E0D4CC;
   }
 
   :root[data-theme="light"] {
-    --ground:      #F6F1F0;
-    --ground-deep: #EFE6E5;
-    --surface:     #FFFBFA;
-    --ink:         #33222B;
-    --ink-soft:    #6B5560;
-    --ink-faint:   #93808A;
-    --line:        #E4D8D8;
-    --accent:      #9A3F5E;
-    --accent-soft: #C9788F;
-    --accent-wash: #F3E4E8;
-    --koji:        #B98726;
-    --koji-wash:   #F5EAD3;
-    --moss:        #6E8161;
-    --shadow:      0 1px 2px rgba(51,34,43,.05), 0 12px 32px -18px rgba(51,34,43,.28);
-    --f1: #9A3F5E; --f2: #C9788F; --f3: #D9A441;
-    --f4: #7E9070; --f5: #B4746A; --f6: #7A6A8C;
+    --prime-grad-text: linear-gradient(90deg, #DE9440 0%, #D2703F 55%, #A0776B 100%);
+    --ground:      #F7F6F4;
+    --ground-deep: #F1EEEA;
+    --surface:     #FFFFFF;
+    --ink:         #473732;
+    --ink-soft:    #82655D;
+    --ink-faint:   #A2938C;
+    --line:        #DDD4CC;
+    --accent:      #82655D;
+    --accent-wash: #F5EDE7;
+    --shadow:      0 1px 2px rgba(71,55,50,.04), 0 14px 34px -20px rgba(71,55,50,.32);
+    --f1: #FFA780; --f2: #F9CC8C; --f3: #C0A79C;
+    --f4: #82655D; --f5: #DDD4CC; --f6: #E0D4CC;
   }
 
   /* ---------- base ---------- */
@@ -108,40 +111,30 @@
     margin: 0;
     background: var(--ground);
     color: var(--ink);
-    font-family: var(--sans);
+    font-family: var(--jp);
     font-size: 16px;
-    line-height: 1.9;
+    line-height: 1.95;
     font-feature-settings: "palt" 1;
     -webkit-font-smoothing: antialiased;
     padding-bottom: 84px;
   }
-
   @media (min-width: 761px) { body { padding-bottom: 0; } }
 
   p { margin: 0; }
   a { color: inherit; }
-
   ::selection { background: var(--accent-wash); }
 
   :where(a, button, summary, input):focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--coral);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
-  .wrap {
-    width: min(100% - var(--gutter) * 2, var(--wrap));
-    margin-inline: auto;
-  }
-
-  /* only the nav breaks out of the single page column */
+  .wrap { width: min(100% - var(--gutter) * 2, var(--wrap)); margin-inline: auto; }
   .wrap--wide { width: min(100% - var(--gutter) * 2, 920px); }
 
-  /* Section rhythm lives here and nowhere else.
-     Every band owns its padding; a plain band following another band drops its
-     top padding so the previous band's bottom padding is the single gap.
-     Bands with their own background keep both sides. */
-  .band { padding-block: clamp(56px, 11vw, 104px); }
+  /* Section rhythm lives here and nowhere else. */
+  .band { padding-block: clamp(56px, 11vw, 100px); }
   .band + .band:not(.band--tinted):not(.closing) { padding-top: 0; }
   .band--tinted { background: var(--ground-deep); }
 
@@ -150,9 +143,9 @@
   .eyebrow {
     font-family: var(--latin);
     font-size: .6875rem;
-    letter-spacing: .22em;
+    letter-spacing: .2em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--ink-soft);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -161,33 +154,47 @@
   .eyebrow::after {
     content: "";
     flex: 1;
-    height: 1px;
-    background: var(--line);
+    height: 2px;
+    border-radius: 2px;
+    background: var(--prime-grad);
+    opacity: .8;
   }
 
   h1, h2, h3 {
-    font-family: var(--serif);
-    font-weight: 600;
+    font-family: var(--jp);
+    font-weight: 700;
     text-wrap: balance;
     margin: 0;
-    line-height: 1.5;
-    letter-spacing: .01em;
+    line-height: 1.6;
+    letter-spacing: .015em;
   }
-  h1 { font-size: clamp(1.5rem, 6.5vw, 2.65rem); line-height: 1.45; }
-  h2 { font-size: clamp(1.4rem, 4.6vw, 1.9rem); }
+  h1 { font-size: clamp(1.5rem, 6.4vw, 2.4rem); line-height: 1.55; }
+  h2 { font-size: clamp(1.3rem, 4.4vw, 1.75rem); }
   h3 { font-size: 1.0625rem; line-height: 1.7; }
 
   .lead { color: var(--ink-soft); font-size: .9375rem; }
-  .small { font-size: .8125rem; color: var(--ink-faint); line-height: 1.8; }
+  .small { font-size: .8125rem; color: var(--ink-faint); line-height: 1.85; }
 
   .stack   { display: flex; flex-direction: column; gap: 20px; }
   .stack-s { display: flex; flex-direction: column; gap: 12px; }
-  .stack-l { display: flex; flex-direction: column; gap: 36px; }
+  .stack-l { display: flex; flex-direction: column; gap: 34px; }
 
-  .mark { color: var(--accent); font-weight: 700; }
+  .mark { color: var(--ink-soft); }
   .under {
-    background: linear-gradient(transparent 62%, var(--koji-wash) 62%);
-    padding-inline: .1em;
+    background: linear-gradient(transparent 62%, color-mix(in srgb, var(--apricot) 55%, transparent) 62%);
+    padding-inline: .12em;
+  }
+  /* the PRIME gradient as a text mark */
+  .grad-text, .cta-card__free em, .tally__count b, .logo span {
+    background: var(--prime-grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .arrowline {
+    font-family: var(--jp);
+    font-weight: 700;
+    letter-spacing: .06em;
   }
 
   /* ---------- nav ---------- */
@@ -196,7 +203,7 @@
     position: sticky;
     top: 0;
     z-index: 40;
-    background: color-mix(in srgb, var(--ground) 88%, transparent);
+    background: color-mix(in srgb, var(--ground) 90%, transparent);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
   }
@@ -218,11 +225,14 @@
     text-decoration: none;
     white-space: nowrap;
   }
-  .logo b { font-weight: 700; }
   .logo span {
     font-size: .625rem;
     letter-spacing: .3em;
-    color: var(--accent);
+    background: var(--prime-grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
   }
   .mockpill {
     font-family: var(--latin);
@@ -246,7 +256,7 @@
     border: 0;
     border-radius: 100px;
     padding: 16px 26px;
-    font-family: var(--sans);
+    font-family: var(--jp);
     font-size: .9375rem;
     font-weight: 700;
     text-decoration: none;
@@ -258,64 +268,43 @@
   .btn--line {
     background: var(--line-green);
     color: #052E13;
-    box-shadow: 0 10px 24px -12px rgba(6,199,85,.75);
+    box-shadow: 0 10px 24px -12px rgba(6,199,85,.7);
   }
-  .btn--line:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(6,199,85,.85); }
-  .btn--ghost {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--line);
-    font-weight: 600;
-  }
-  .btn--ghost:hover { background: var(--surface); }
+  .btn--line:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(6,199,85,.8); }
   .btn--sm { padding: 9px 16px; font-size: .8125rem; white-space: nowrap; }
+  .btn--block { width: 100%; }
+  .btn__icon { width: 18px; height: 18px; flex: none; }
   /* the sticky bottom bar already carries the CTA on small screens */
   .nav .btn--line { display: none; }
   @media (min-width: 761px) { .nav .btn--line { display: inline-flex; } }
-  .btn--block { width: 100%; }
-  .btn__icon {
-    width: 18px; height: 18px; flex: none;
-  }
 
   /* ---------- hero ---------- */
 
   .hero {
     position: relative;
     overflow: hidden;
-    padding-block: clamp(40px, 9vw, 76px) clamp(48px, 10vw, 88px);
+    padding-block: clamp(36px, 8vw, 72px) clamp(48px, 10vw, 84px);
   }
   .hero__glow {
     position: absolute;
-    inset: -30% -10% auto -10%;
-    height: 620px;
+    inset: -28% -10% auto -10%;
+    height: 600px;
     background:
-      radial-gradient(46% 52% at 22% 30%, color-mix(in srgb, var(--f2) 30%, transparent), transparent 70%),
-      radial-gradient(40% 46% at 82% 18%, color-mix(in srgb, var(--f3) 24%, transparent), transparent 70%),
-      radial-gradient(50% 50% at 60% 66%, color-mix(in srgb, var(--f6) 18%, transparent), transparent 72%);
+      radial-gradient(44% 50% at 24% 30%, color-mix(in srgb, var(--coral) 32%, transparent), transparent 70%),
+      radial-gradient(40% 46% at 80% 18%, color-mix(in srgb, var(--apricot) 34%, transparent), transparent 70%),
+      radial-gradient(48% 50% at 60% 68%, color-mix(in srgb, var(--greige) 22%, transparent), transparent 72%);
     filter: blur(10px);
     pointer-events: none;
   }
   .hero__in { position: relative; display: flex; flex-direction: column; gap: 26px; }
 
-  .ring {
-    width: min(230px, 56vw);
-    aspect-ratio: 1;
-    align-self: center;
-    display: block;
-  }
-  .hero__ring-wrap {
-    position: relative;
-    align-self: center;
-    display: grid;
-    place-items: center;
-  }
+  .ring { width: min(230px, 56vw); aspect-ratio: 1; align-self: center; display: block; }
+  .hero__ring-wrap { position: relative; align-self: center; display: grid; place-items: center; }
   .hero__ring-label {
     position: absolute;
     text-align: center;
-    font-family: var(--serif);
     line-height: 1.5;
     padding: 26px 18px;
-    /* keeps the label legible where the ring strokes pass behind it */
     background: radial-gradient(closest-side, var(--ground) 58%, color-mix(in srgb, var(--ground) 0%, transparent) 100%);
   }
   .hero__ring-label b {
@@ -324,7 +313,7 @@
     font-size: 1.75rem;
     letter-spacing: .04em;
     font-variant-numeric: tabular-nums;
-    color: var(--accent);
+    color: var(--ink);
   }
   .hero__ring-label span {
     font-family: var(--latin);
@@ -333,8 +322,7 @@
     letter-spacing: .18em;
   }
 
-  .hero h1 { text-align: center; }
-  .hero .lead { text-align: center; }
+  .hero h1, .hero .lead { text-align: center; }
 
   .cta-card {
     background: var(--surface);
@@ -351,14 +339,18 @@
     align-items: baseline;
     justify-content: center;
     gap: 10px;
-    font-family: var(--serif);
   }
-  .cta-card__free b {
+  .cta-card__free em {
+    font-style: normal;
     font-family: var(--latin);
     font-size: 2rem;
-    color: var(--koji);
     letter-spacing: .02em;
     font-variant-numeric: tabular-nums;
+    background: var(--prime-grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
   }
   .cta-card__free s { color: var(--ink-faint); font-size: .8125rem; text-decoration-thickness: 1px; }
   .cta-note {
@@ -375,7 +367,7 @@
   .cta-note li::before {
     content: "";
     width: 5px; height: 5px; border-radius: 50%;
-    background: var(--moss);
+    background: var(--coral);
   }
 
   /* ---------- checklist ---------- */
@@ -397,7 +389,7 @@
   .check__box {
     flex: none;
     width: 20px; height: 20px;
-    margin-top: 3px;
+    margin-top: 4px;
     border: 1.5px solid var(--line);
     border-radius: 6px;
     background: var(--surface);
@@ -408,19 +400,19 @@
   .check__box::after {
     content: "";
     width: 9px; height: 5px;
-    border-left: 2px solid var(--surface);
-    border-bottom: 2px solid var(--surface);
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
     transform: rotate(-45deg) scale(.4);
     opacity: 0;
     transition: opacity .16s ease, transform .16s ease;
   }
   .check input:checked + .check__box {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--coral);
+    border-color: var(--coral);
   }
   .check input:checked + .check__box::after { opacity: 1; transform: rotate(-45deg) scale(1); }
-  .check:has(input:checked) { background: var(--accent-wash); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }
-  .check input:focus-visible + .check__box { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .check:has(input:checked) { background: var(--accent-wash); border-color: color-mix(in srgb, var(--coral) 40%, transparent); }
+  .check input:focus-visible + .check__box { outline: 2px solid var(--coral); outline-offset: 3px; }
 
   .tally {
     margin-top: 8px;
@@ -430,16 +422,16 @@
     flex-direction: column;
     gap: 14px;
   }
-  .tally__count {
-    font-family: var(--serif);
-    font-size: 1.0625rem;
-  }
+  .tally__count { font-size: 1rem; font-weight: 700; }
   .tally__count b {
     font-family: var(--latin);
     font-size: 1.75rem;
-    color: var(--accent);
     font-variant-numeric: tabular-nums;
     padding-inline: 2px;
+    background: var(--prime-grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
   .tally__msg { font-size: .875rem; color: var(--ink-soft); }
   .tally__cta[hidden] { display: none; }
@@ -466,8 +458,31 @@
     color: var(--ink-faint);
   }
 
+  /* the three PRIME pillars, carried over from prime.yourkins.com */
+  .pillar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .pillar:first-child { border-top: 1px solid var(--line); }
+  .pillar__jp {
+    font-weight: 700;
+    font-size: 1.0625rem;
+    white-space: nowrap;
+  }
+  .pillar__tag {
+    font-size: .8125rem;
+    color: var(--ink-soft);
+    letter-spacing: .04em;
+  }
+  .pillar p { grid-column: 1 / -1; }
+  @media (min-width: 620px) { .pillar p { grid-column: 2; } }
+
   /* misconception rows */
-  .miss { display: flex; flex-direction: column; gap: 0; }
+  .miss { display: flex; flex-direction: column; }
   .miss__row {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -478,17 +493,41 @@
   }
   .miss__row:first-child { border-top: 1px solid var(--line); }
   .miss__x {
-    font-family: var(--latin);
     font-size: .75rem;
-    letter-spacing: .1em;
-    color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    letter-spacing: .04em;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    background: var(--surface);
     border-radius: 100px;
-    padding: 2px 10px;
-    margin-top: 3px;
+    padding: 3px 11px;
+    margin-top: 4px;
     white-space: nowrap;
   }
   .miss__row p + p { margin-top: 6px; }
+
+  /* ---------- what the test shows ---------- */
+
+  .finds { display: grid; gap: 12px; }
+  @media (min-width: 700px) { .finds { grid-template-columns: 1fr 1fr; } }
+  .find {
+    border-radius: 14px;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .find::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--prime-grad);
+  }
+  .find h3 { font-size: .9375rem; }
 
   /* ---------- report mock ---------- */
 
@@ -508,8 +547,18 @@
     gap: 12px;
     background: var(--ground-deep);
   }
-  .report__head b { font-family: var(--serif); font-size: .9375rem; }
+  .report__head b { font-family: var(--latin); font-size: .875rem; letter-spacing: .1em; }
   .report__body { padding: 22px; display: flex; flex-direction: column; gap: 24px; }
+
+  .total {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 4px;
+  }
+  .total__ring { width: 84px; height: 84px; flex: none; }
+  .total__txt { display: flex; flex-direction: column; gap: 2px; }
+  .total__txt b { font-size: .9375rem; }
 
   .metric { display: flex; flex-direction: column; gap: 8px; }
   .metric__top {
@@ -539,18 +588,11 @@
     position: absolute;
     inset: 0 auto 0 0;
     border-radius: 100px;
-    background: linear-gradient(90deg, var(--f2), var(--accent));
+    background: var(--prime-grad);
     display: block;
   }
-  .meter--sub i { background: linear-gradient(90deg, var(--f3), var(--f5)); }
 
-  .stackbar {
-    display: flex;
-    height: 26px;
-    border-radius: 8px;
-    overflow: hidden;
-    gap: 2px;
-  }
+  .stackbar { display: flex; height: 26px; border-radius: 8px; overflow: hidden; gap: 2px; }
   .stackbar span { display: block; }
   .legend {
     display: flex;
@@ -561,9 +603,7 @@
     font-variant-numeric: tabular-nums;
   }
   .legend b { display: inline-flex; align-items: center; gap: 6px; font-weight: 400; }
-  .legend i {
-    width: 9px; height: 9px; border-radius: 3px; display: inline-block;
-  }
+  .legend i { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
 
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip {
@@ -573,7 +613,10 @@
     font-size: .8125rem;
     background: var(--ground);
   }
-  .chip--good { border-color: color-mix(in srgb, var(--moss) 45%, transparent); color: var(--moss); }
+  .chip--good {
+    border-color: color-mix(in srgb, var(--coral) 55%, transparent);
+    background: var(--accent-wash);
+  }
 
   .badge-status {
     font-family: var(--latin);
@@ -582,14 +625,14 @@
     text-transform: uppercase;
     padding: 4px 10px;
     border-radius: 100px;
-    background: var(--koji-wash);
-    color: var(--koji);
+    border: 1px solid var(--line);
+    color: var(--ink-faint);
     white-space: nowrap;
   }
 
   /* ---------- steps ---------- */
 
-  .steps { display: flex; flex-direction: column; gap: 0; counter-reset: s; }
+  .steps { display: flex; flex-direction: column; }
   .step {
     display: grid;
     grid-template-columns: 44px 1fr;
@@ -616,7 +659,7 @@
     font-family: var(--latin);
     font-size: .8125rem;
     letter-spacing: .06em;
-    color: var(--accent);
+    color: var(--ink-soft);
     font-variant-numeric: tabular-nums;
     position: relative;
     z-index: 1;
@@ -633,24 +676,15 @@
   /* ---------- voices ---------- */
 
   .voice {
-    border-left: 2px solid var(--accent-soft);
+    border-left: 2px solid;
+    border-image: var(--prime-grad) 1;
     padding: 4px 0 4px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  .voice q {
-    font-family: var(--serif);
-    font-size: 1rem;
-    line-height: 1.85;
-    quotes: "「" "」";
-  }
-  .voice cite {
-    font-style: normal;
-    font-size: .75rem;
-    color: var(--ink-faint);
-    letter-spacing: .04em;
-  }
+  .voice q { font-size: 1rem; line-height: 1.9; quotes: "「" "」"; }
+  .voice cite { font-style: normal; font-size: .75rem; color: var(--ink-faint); letter-spacing: .04em; }
 
   /* ---------- faq ---------- */
 
@@ -672,8 +706,8 @@
     right: 6px;
     top: 27px;
     width: 9px; height: 9px;
-    border-right: 1.5px solid var(--accent);
-    border-bottom: 1.5px solid var(--accent);
+    border-right: 1.5px solid var(--ink-soft);
+    border-bottom: 1.5px solid var(--ink-soft);
     transform: rotate(45deg);
     transition: transform .2s ease;
   }
@@ -682,18 +716,14 @@
 
   /* ---------- closing ---------- */
 
-  .closing {
-    background: var(--ground-deep);
-    position: relative;
-    overflow: hidden;
-  }
+  .closing { background: var(--ground-deep); position: relative; overflow: hidden; }
   .closing__glow {
     position: absolute;
     inset: auto -20% -60% -20%;
     height: 420px;
     background:
-      radial-gradient(45% 60% at 30% 60%, color-mix(in srgb, var(--f2) 28%, transparent), transparent 70%),
-      radial-gradient(45% 60% at 74% 40%, color-mix(in srgb, var(--f3) 20%, transparent), transparent 70%);
+      radial-gradient(45% 60% at 30% 60%, color-mix(in srgb, var(--coral) 30%, transparent), transparent 70%),
+      radial-gradient(45% 60% at 74% 40%, color-mix(in srgb, var(--apricot) 30%, transparent), transparent 70%);
     filter: blur(12px);
     pointer-events: none;
   }
@@ -739,16 +769,14 @@
     body { padding-bottom: 0; background: #fff; }
     .nav, .sticky { display: none; }
     .band { padding-block: 24px; break-inside: avoid; }
-    .card, .report, .step { break-inside: avoid; }
+    .card, .report, .step, .find { break-inside: avoid; }
     .hero__glow, .closing__glow { display: none; }
   }
 </style>
 
 <header class="nav">
   <div class="wrap wrap--wide nav__in">
-    <a class="logo" href="#top">
-      <b>KINS PRIME</b><span>LADIES</span>
-    </a>
+    <a class="logo" href="#top"><b>KINS PRIME</b><span>LADIES</span></a>
     <div style="display:flex;align-items:center;gap:10px">
       <span class="mockpill">Design mock</span>
       <a class="btn btn--line btn--sm" href="#cta">無料で申し込む</a>
@@ -783,7 +811,7 @@
         <p class="eyebrow" style="justify-content:center">Launch campaign</p>
         <div class="cta-card__free">
           <span>腸内フローラ検査</span>
-          <b>¥0</b>
+          <em>¥0</em>
           <s>¥39,800</s>
         </div>
         <a class="btn btn--line btn--block" href="#cta">
@@ -797,9 +825,7 @@
         </ul>
       </div>
 
-      <p class="small" style="text-align:center">
-        ※ 先着1,000名の初回モニター枠。定員に達し次第終了します。
-      </p>
+      <p class="small" style="text-align:center">※ 先着1,000名の初回モニター枠。定員に達し次第終了します。</p>
     </div>
   </section>
 
@@ -840,7 +866,7 @@
         <h2>35歳から、<br>お腹の中は静かに入れ替わる。</h2>
         <p class="lead">
           年齢とともに変わるのは、代謝や肌だけではありません。
-          腸内細菌の<strong>種類の豊かさ（多様性）</strong>と<strong>構成比</strong>が変化し、これまでと同じ食事・同じ習慣でも、同じ結果が出にくくなります。
+          腸内細菌の<strong>種類の豊かさ（α多様性）</strong>と<strong>構成比</strong>が変化し、これまでと同じ食事・同じ習慣でも、同じ結果が出にくくなります。
         </p>
       </div>
 
@@ -856,16 +882,45 @@
           <p class="small">腸内細菌はエストロゲンの代謝にも関わります。ゆらぎの時期に腸の調子が動くのは、偶然ではありません。</p>
         </div>
         <div class="card">
-          <p class="card__label">Short-chain fatty acid</p>
-          <h3>短鎖脂肪酸が減る</h3>
-          <p class="small">腸のぜん動運動や代謝を支える物質。つくる菌が少ないと、食べる量を減らしても変化が出にくくなります。</p>
+          <p class="card__label">Butyrate</p>
+          <h3>酪酸がつくれない</h3>
+          <p class="small">腸のぜん動運動や代謝を支える短鎖脂肪酸。つくる菌が少ないと、食べる量を減らしても変化が出にくくなります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE THREE PILLARS (from KINS PRIME) ============ -->
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack-s">
+        <p class="eyebrow">Features</p>
+        <h2><span class="arrowline grad-text">みえる → わかる → かわる</span><br>この順番でしか、変わらない。</h2>
+        <p class="lead">KINS PRIME が大切にしている3つを、女性のからだに合わせて設計しました。</p>
+      </div>
+
+      <div>
+        <div class="pillar">
+          <span class="pillar__jp">可視化</span>
+          <span class="pillar__tag">腸内のいまを、数値に</span>
+          <p class="small">腸内フローラ検査で、いまのバランスを数値で可視化。推測でのケアを終わらせます。</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar__jp">実感設計</span>
+          <span class="pillar__tag">速さ×実感</span>
+          <p class="small">結果に合わせて、続けられる形で。飲みにくさや手間で止まらない設計にしています。</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar__jp">伴走</span>
+          <span class="pillar__tag">専門家がいつでも</span>
+          <p class="small">食事の工夫や取り入れ方について、LINEで専門家に相談できます。検査して終わりにしません。</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ MISCONCEPTIONS ============ -->
-  <section class="band">
+  <section class="band band--tinted">
     <div class="wrap stack-l">
       <div class="stack-s">
         <p class="eyebrow">The gap</p>
@@ -904,6 +959,36 @@
     </div>
   </section>
 
+  <!-- ============ WHAT THE TEST SHOWS ============ -->
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack-s">
+        <p class="eyebrow">What you learn</p>
+        <h2>検査でわかること</h2>
+        <p class="lead">腸内フローラを測るうえで重要とされる指標から、いまの状態と打ち手を割り出します。</p>
+      </div>
+
+      <div class="finds">
+        <div class="find">
+          <h3>コンディションの総合評価</h3>
+          <p class="small">α多様性・酪酸生成・ビタミンB群生成のスコアをまとめ、いまの状態を一目で示します。</p>
+        </div>
+        <div class="find">
+          <h3>PICK UP菌</h3>
+          <p class="small">KINSが重視する菌の有無と比率の目安を表示。“好物の食材”で育てる方向を提案します。</p>
+        </div>
+        <div class="find">
+          <h3>有用菌が好む食材</h3>
+          <p class="small">菌ごとに相性の良い食物繊維・発酵食品・ポリフェノールなどを提示します。</p>
+        </div>
+        <div class="find">
+          <h3>ビタミン・乳酸・短鎖脂肪酸</h3>
+          <p class="small">つくれているか、足りていないか。お通じや肌のゆらぎに直結する項目です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ REPORT MOCK ============ -->
   <section class="band band--tinted">
     <div class="wrap stack-l">
@@ -920,45 +1005,53 @@
         </div>
         <div class="report__body">
 
-          <div class="metric">
-            <div class="metric__top">
-              <span>多様性スコア</span>
-              <span class="metric__val">62<i> / 100</i></span>
+          <div class="total">
+            <canvas class="total__ring" id="totalRing" role="img" aria-label="総合評価 54点"></canvas>
+            <div class="total__txt">
+              <p class="card__label">総合評価</p>
+              <b>整えはじめどき</b>
+              <p class="small">同年代の平均は 68。いまなら戻しやすい段階です。</p>
             </div>
-            <div class="meter"><i style="width:62%"></i></div>
-            <p class="small">同年代の平均は 71。菌の種類がやや少なめです。</p>
           </div>
 
           <div class="metric">
-            <div class="metric__top">
-              <span>短鎖脂肪酸の産生能</span>
-              <span class="metric__val">38<i> / 100</i></span>
-            </div>
-            <div class="meter meter--sub"><i style="width:38%"></i></div>
+            <div class="metric__top"><span>α多様性</span><span class="metric__val">62<i> / 100</i></span></div>
+            <div class="meter"><i style="width:62%"></i></div>
+            <p class="small">菌の種類がやや少なめ。食べるものの幅が狭くなっているサインです。</p>
+          </div>
+
+          <div class="metric">
+            <div class="metric__top"><span>酪酸生成</span><span class="metric__val">38<i> / 100</i></span></div>
+            <div class="meter"><i style="width:38%"></i></div>
             <p class="small">つくる力が低下。お通じの回数と満腹感に影響しやすい状態です。</p>
           </div>
 
           <div class="metric">
+            <div class="metric__top"><span>ビタミンB群生成</span><span class="metric__val">55<i> / 100</i></span></div>
+            <div class="meter"><i style="width:55%"></i></div>
+            <p class="small">やや不足。肌のゆらぎや朝のだるさと関係することがあります。</p>
+          </div>
+
+          <div class="metric">
             <div class="metric__top" style="margin-bottom:2px">
-              <span>菌の構成比</span>
-              <span class="small" style="font-size:.6875rem">門レベル</span>
+              <span>菌の構成比</span><span class="small" style="font-size:.6875rem">門レベル</span>
             </div>
             <div class="stackbar" role="img" aria-label="バクテロイデス門42パーセント、ファーミキューテス門38パーセント、アクチノバクテリア門11パーセント、その他9パーセント">
               <span style="width:42%;background:var(--f1)"></span>
-              <span style="width:38%;background:var(--f3)"></span>
-              <span style="width:11%;background:var(--f4)"></span>
-              <span style="width:9%;background:var(--f6)"></span>
+              <span style="width:38%;background:var(--f2)"></span>
+              <span style="width:11%;background:var(--f3)"></span>
+              <span style="width:9%;background:var(--f4)"></span>
             </div>
             <div class="legend">
               <b><i style="background:var(--f1)"></i>バクテロイデス 42%</b>
-              <b><i style="background:var(--f3)"></i>ファーミキューテス 38%</b>
-              <b><i style="background:var(--f4)"></i>アクチノ 11%</b>
-              <b><i style="background:var(--f6)"></i>その他 9%</b>
+              <b><i style="background:var(--f2)"></i>ファーミキューテス 38%</b>
+              <b><i style="background:var(--f3)"></i>アクチノ 11%</b>
+              <b><i style="background:var(--f4)"></i>その他 9%</b>
             </div>
           </div>
 
           <div class="stack-s">
-            <p class="card__label">あなたの菌が好む食材</p>
+            <p class="card__label">有用菌が好む食材</p>
             <div class="chips">
               <span class="chip chip--good">もち麦</span>
               <span class="chip chip--good">海藻</span>
@@ -1012,7 +1105,7 @@
           <div class="step__body">
             <p class="step__when">約4–6週間後</p>
             <h3>結果とパーソナル提案がLINEに届く</h3>
-            <p class="small">読んで終わりにしないために、結果後も管理栄養士にLINEで相談できます。</p>
+            <p class="small">読んで終わりにしないために、結果後も専門家にLINEで相談できます。</p>
           </div>
         </div>
       </div>
@@ -1027,7 +1120,7 @@
         <h3>なぜ、無料なのか。</h3>
         <p class="small" style="font-size:.875rem;color:var(--ink-soft)">
           KINS PRIME LADIES は、日本の35歳以上の女性に特化した腸内フローラのデータをこれから積み上げていくところです。
-          そのため初回1,000名の方には、検査費用（¥39,800）をこちらで負担し、統計データとして匿名で活用させていただきます。
+          そのため初回1,000名の方には検査費用をこちらで負担し、統計データとして匿名で活用させていただきます。
           個人が特定される形での提供・販売は行いません。
         </p>
       </div>
@@ -1048,7 +1141,7 @@
           <cite>38歳・会社員</cite>
         </div>
         <div class="voice">
-          <q>「痩せにくい」を年齢のせいにしていました。短鎖脂肪酸の数値を見てから、食べる時間を変えただけでお腹の張りが減っています。</q>
+          <q>「痩せにくい」を年齢のせいにしていました。酪酸の数値を見てから、食べる時間を変えただけでお腹の張りが減っています。</q>
           <cite>42歳・二児の母</cite>
         </div>
         <div class="voice">
@@ -1106,7 +1199,7 @@
       <div class="cta-card">
         <div class="cta-card__free">
           <span>腸内フローラ検査</span>
-          <b>¥0</b>
+          <em>¥0</em>
           <s>¥39,800</s>
         </div>
         <a class="btn btn--line btn--block" href="#cta">
@@ -1155,7 +1248,7 @@
     checks.forEach(function (c) { if (c.checked) n++; });
     num.textContent = n;
     if (n === 0)      msg.textContent = "気になるものをタップしてみてください。";
-    else if (n < 3)   msg.textContent = "その2つ、原因が同じところにあるかもしれません。";
+    else if (n < 3)   msg.textContent = "その不調、原因が同じところにあるかもしれません。";
     else if (n < 5)   msg.textContent = "複数が同時に出ているときは、腸内フローラのバランスが関わっている可能性があります。";
     else              msg.textContent = "ばらばらに見える不調が、ひとつの原因でつながっていることがあります。まず調べてみてください。";
     ctaWrap.hidden = n < 3;
@@ -1163,56 +1256,58 @@
   checks.forEach(function (c) { c.addEventListener("change", update); });
   update();
 
+  /* ---------- shared canvas helpers ---------- */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var hues = [], tokens = {};
+
+  function readTokens() {
+    var cs = getComputedStyle(document.documentElement);
+    hues = ["--f1", "--f2", "--f3", "--f4", "--f5", "--f6"].map(function (v) {
+      return cs.getPropertyValue(v).trim() || "#FFA780";
+    });
+    tokens.line   = cs.getPropertyValue("--ground-deep").trim() || "#F1EEEA";
+    tokens.coral  = cs.getPropertyValue("--coral").trim()   || "#FFA780";
+    tokens.apricot= cs.getPropertyValue("--apricot").trim() || "#F9CC8C";
+    tokens.greige = cs.getPropertyValue("--greige").trim()  || "#C0A79C";
+    tokens.ink    = cs.getPropertyValue("--ink").trim()     || "#473732";
+  }
+
+  function fit(cv) {
+    var rect = cv.getBoundingClientRect();
+    var dpr  = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width  = Math.round(rect.width * dpr);
+    cv.height = Math.round(rect.width * dpr);
+    cv.getContext("2d").setTransform(dpr, 0, 0, dpr, 0, 0);
+    return rect.width;
+  }
+
   /* ---------- hero flora ring ---------- */
   var cv  = document.getElementById("floraRing");
   var ctx = cv.getContext("2d");
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-  // ring definition: [radius ratio, thickness, segment count, speed]
   var rings = [
-    { r: 0.94, w: 7,  seg: 5, speed:  0.00022 },
-    { r: 0.80, w: 11, seg: 8, speed: -0.00034 },
-    { r: 0.64, w: 9,  seg: 6, speed:  0.00046 },
+    { r: 0.94, w: 7,  seg: 5,  speed:  0.00022 },
+    { r: 0.80, w: 11, seg: 8,  speed: -0.00034 },
+    { r: 0.64, w: 9,  seg: 6,  speed:  0.00046 },
     { r: 0.50, w: 5,  seg: 11, speed: -0.00028 }
   ];
-
-  var hues = [];
-  function readHues() {
-    var cs = getComputedStyle(document.documentElement);
-    hues = ["--f1", "--f2", "--f3", "--f4", "--f5", "--f6"].map(function (v) {
-      return cs.getPropertyValue(v).trim() || "#9A3F5E";
-    });
-  }
-
   var size = 0;
-  function resize() {
-    var rect = cv.getBoundingClientRect();
-    var dpr  = Math.min(window.devicePixelRatio || 1, 2);
-    size = rect.width;
-    cv.width  = Math.round(rect.width * dpr);
-    cv.height = Math.round(rect.width * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
 
-  function draw(t) {
+  function drawFlora(t) {
     if (!size) return;
     var c = size / 2;
     ctx.clearRect(0, 0, size, size);
     ctx.lineCap = "round";
-
     rings.forEach(function (ring, ri) {
       var radius = c * ring.r * 0.82;
-      var gap    = 0.16;
       var arc    = (Math.PI * 2) / ring.seg;
       var offset = t * ring.speed + ri * 0.7;
-
       for (var i = 0; i < ring.seg; i++) {
         var start = offset + i * arc;
         // vary each segment's sweep so the ring reads as a colony, not a pie chart
-        var sweep = arc * (1 - gap) * (0.55 + 0.45 * Math.abs(Math.sin(i * 1.7 + ri)));
+        var sweep = arc * 0.84 * (0.55 + 0.45 * Math.abs(Math.sin(i * 1.7 + ri)));
         ctx.beginPath();
         ctx.strokeStyle = hues[(i + ri * 2) % hues.length];
-        ctx.globalAlpha = 0.32 + 0.5 * Math.abs(Math.sin(i * 0.9 + ri * 1.3));
+        ctx.globalAlpha = 0.38 + 0.5 * Math.abs(Math.sin(i * 0.9 + ri * 1.3));
         ctx.lineWidth = ring.w * (size / 230);
         ctx.arc(c, c, radius, start, start + sweep);
         ctx.stroke();
@@ -1221,24 +1316,56 @@
     ctx.globalAlpha = 1;
   }
 
-  var raf = null;
-  function loop(ts) {
-    draw(ts);
-    raf = requestAnimationFrame(loop);
-  }
-  function start() {
-    if (raf) cancelAnimationFrame(raf);
-    readHues();
-    resize();
-    if (reduce.matches) { draw(0); raf = null; }
-    else { raf = requestAnimationFrame(loop); }
+  /* ---------- report total-score ring ---------- */
+  var tv = document.getElementById("totalRing");
+  var tctx = tv.getContext("2d");
+  var SCORE = 54;
+
+  function drawTotal() {
+    var s = fit(tv), c = s / 2, r = c - 7;
+    tctx.clearRect(0, 0, s, s);
+    tctx.lineCap = "round";
+    tctx.lineWidth = 8;
+    tctx.strokeStyle = tokens.line;
+    tctx.beginPath();
+    tctx.arc(c, c, r, 0, Math.PI * 2);
+    tctx.stroke();
+
+    var g = tctx.createLinearGradient(0, 0, s, s);
+    g.addColorStop(0, tokens.apricot);
+    g.addColorStop(0.55, tokens.coral);
+    g.addColorStop(1, tokens.greige);
+    tctx.strokeStyle = g;
+    tctx.beginPath();
+    tctx.arc(c, c, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (SCORE / 100));
+    tctx.stroke();
+
+    tctx.fillStyle = tokens.ink;
+    tctx.textAlign = "center";
+    tctx.textBaseline = "middle";
+    tctx.font = '600 22px "TTFirsNeue","Futura","Avenir Next",system-ui,sans-serif';
+    tctx.fillText(String(SCORE), c, c + 1);
   }
 
-  window.addEventListener("resize", function () { resize(); if (reduce.matches) draw(0); });
-  reduce.addEventListener("change", start);
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
-    setTimeout(start, 30);
+  var raf = null;
+  function loop(ts) { drawFlora(ts); raf = requestAnimationFrame(loop); }
+
+  function start() {
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+    readTokens();
+    size = fit(cv);
+    drawTotal();
+    if (reduce.matches) drawFlora(0);
+    else raf = requestAnimationFrame(loop);
+  }
+
+  window.addEventListener("resize", function () {
+    size = fit(cv);
+    drawTotal();
+    if (reduce.matches) drawFlora(0);
   });
+  reduce.addEventListener("change", start);
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () { setTimeout(start, 30); });
   new MutationObserver(function () { setTimeout(start, 30); })
     .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
