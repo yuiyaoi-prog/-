@@ -1,0 +1,1778 @@
+{
+  "generatedAt": "2026-08-05T04:22:25.334Z",
+  "criteria": {
+    "days": 30,
+    "minLikes": 1000
+  },
+  "counts": {
+    "candidates": 64,
+    "fetched": 61,
+    "failed": 3,
+    "passed": 0
+  },
+  "errors": [
+    {
+      "url": "https://www.threads.com/@1998rinachimu/post/DWuzpYcAVce",
+      "error": "埋め込みを解析できない（削除／非公開の可能性）: https://www.threads.com/@1998rinachimu/post/DWuzpYcAVce"
+    },
+    {
+      "url": "https://www.threads.com/@hoikushi_genekimama/post/DQjJXCkkj2W",
+      "error": "埋め込みを解析できない（削除／非公開の可能性）: https://www.threads.com/@hoikushi_genekimama/post/DQjJXCkkj2W"
+    },
+    {
+      "url": "https://x.com/wtkgumdgtwttm77/status/2048305035365450072",
+      "error": "投稿を取得できない（削除／非公開の可能性）: https://x.com/wtkgumdgtwttm77/status/2048305035365450072"
+    }
+  ],
+  "posts": [
+    {
+      "platform": "x",
+      "id": "1737648823751831784",
+      "url": "https://x.com/yuzuka_tecpizza/status/1737648823751831784",
+      "author": "yuzuka_tecpizza",
+      "text": "叩かれる覚悟なんですけど、専業主婦は育児除く家事は基本的に全部ひとりでやろうやと思うし、共働きなら否応なく男も半分は家事を担えと思う。",
+      "postedAt": "2023-12-21T01:38:58.000Z",
+      "likes": 16237,
+      "replies": 635,
+      "reposts": null,
+      "quotes": null,
+      "themes": [
+        "childcare",
+        "women-work"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 50.1
+    },
+    {
+      "platform": "threads",
+      "id": "DQQP--BksYH",
+      "url": "https://www.threads.com/@janesu112/post/DQQP--BksYH",
+      "author": "janesu112",
+      "text": "母親がみんなの親より年上だったからいじめられた、親の病気でヤングケアラーになった、一緒にいる時間が短いから高年齢出産はエゴ、という高年齢出産の母親をもつ方の投稿が流れてきた。その方にとってはそうなんだろうけど、母親が41歳のときに生まれた私にとっては真逆。友達の母親よりうんと年上だった母は圧倒的に落ち着いていて聡明だったし、ヤングケアラーまでいかなくとも24歳で母を看取った経験は全方位において私の財産でしかないし、24年しか一緒にいなかったから遺恨を残すような揉め方もせず、母は私の中で美しく信仰に昇華した。もう一度生まれ直すとしても41歳の母のもとに生まれたい。本当に本当にいいことしかなかった。あと、母が｢母｣の肩書きをつけられるまえの人生を41年も味わえたことは誇らしい。",
+      "postedAt": "2025-10-25T18:18:00.000Z",
+      "likes": 32400,
+      "replies": 201,
+      "reposts": 310,
+      "quotes": 5,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "fertility"
+      ],
+      "themeLabels": [
+        "妊活・出産"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 46.1
+    },
+    {
+      "platform": "threads",
+      "id": "DVClrbSkqAP",
+      "url": "https://www.threads.com/@michi.0129/post/DVClrbSkqAP",
+      "author": "jpdjdjtdmmk",
+      "text": "厳しいご意見もください。\n0歳2歳を育てる専業主婦なのですが、夫に家事を協力してもらうのは甘えですか？\n夫は朝8時30分ごろから出て行き、夜21時ごろ帰宅です（休憩3時間半）\n帰ってきてからの皿洗いの担当をお願いしていたのですが、仕事がしんどいから帰ってきてから家事したくないと。夫は一人暮らし経験はなく、家事など1人で回せるタイプではないです。料理以外は言えばやってくれます。\n夜皿洗いがしんどいみたいなので、私が夜の皿洗いはするから弁当自分でつくってくれないか提案したら、義母につくってもらうように頼むと。なんかおかしくないですか？違和感あるの私だけでしょうか。\n夜の皿洗いを任せる前は帰ってきてからダラダラ携帯を触って寝るのは1時ごろ。正直そのダラダラの時間を皿洗いに充てて欲しいと言うのが本音です。\nやっぱり専業主婦が家事はすべてやるべきですかね。厳しい意見でもなんでもください。",
+      "postedAt": "2026-02-20T17:23:00.000Z",
+      "likes": 1200,
+      "replies": 1900,
+      "reposts": 17,
+      "quotes": 3,
+      "metricsFromThreadRoot": true,
+      "themes": [
+        "marriage",
+        "women-work"
+      ],
+      "themeLabels": [
+        "夫婦のあり方・夫婦の価値観",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 5,
+        "notes": [
+          "経済的自立に接続できる",
+          "常識破壊フックを作りやすい"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 42.8
+    },
+    {
+      "platform": "threads",
+      "id": "DRmAfCykjsx",
+      "url": "https://www.threads.com/@anko_sensai/post/DRmAfCykjsx",
+      "author": "anko_sensai",
+      "text": "普段は清掃員パートしている主婦。\n（扶養外）\n\n今週も、\n病院の清掃員、ホテル客室清掃、、\n家事も子育ても、、\nよく頑張ったよー！！\n\nおつかれ、わたし★",
+      "postedAt": "2025-11-28T00:43:00.000Z",
+      "likes": 2900,
+      "replies": 25,
+      "reposts": 1,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare",
+        "women-work"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 42.6
+    },
+    {
+      "platform": "threads",
+      "id": "DHgE6oXyaN_",
+      "url": "https://www.threads.com/@uzura_tani/post/DHgE6oXyaN_",
+      "author": "uzura_tani",
+      "text": "両親が共働きだったから「私はいつも家にいるお母さんになろう」と思っていた小学生時代の私\n結婚後、専業主婦になり、家で子供の帰りを待つ生活\nすると娘（当時小学２年生ぐらい）が「あたしも◯◯ちゃん（友達）みたいに自分で鍵を開けて家に入りたい」と\n\n人間って…ないものねだりよね…",
+      "postedAt": "2025-03-22T05:13:00.000Z",
+      "likes": 2700,
+      "replies": 29,
+      "reposts": 3,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "women-work"
+      ],
+      "themeLabels": [
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 41.3
+    },
+    {
+      "platform": "threads",
+      "id": "DNKDUEjSd-9",
+      "url": "https://www.threads.com/@purun_hanul/post/DNKDUEjSd-9",
+      "author": "masanori1897",
+      "text": "今日、嫁に\n「マイクラが人気やから、Switch買いたいな」と言ったら、\n「はあぁ？3歳の子供おって？\nそんな時間どこにあんねん。\n寝かしつけした後一緒に寝るのに\nいつやんねん。」\nと、ヤクザのように言われました。\n嫁が子供を見ている間に1時間ぐらい\nできると思うのですが、\n僕が間違っていますか？",
+      "postedAt": "2025-08-09T02:23:00.000Z",
+      "likes": 12800,
+      "replies": 1500,
+      "reposts": 121,
+      "quotes": 3,
+      "metricsFromThreadRoot": true,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "対象テーマに合致しない"
+      ],
+      "score": 41.1
+    },
+    {
+      "platform": "threads",
+      "id": "DG0sDW4htw4",
+      "url": "https://www.threads.com/@kazutoyokoto/post/DG0sDW4htw4",
+      "author": "sarusa5050",
+      "text": "昔の日本に戻りませんか？\n\n奥様方は家で家事をし、\n男性の稼ぎで十分に暮らせた社会。\n\n働きたい女性は働けば良いし、\n家に居たい女性は家に居たら良いと思います。\n\n「ただいま〜！」\nって家にお母さんが居る安心感。\n\n「遊びに行ってくるね！」\n\n「いってらっしゃい、気を付けてね！」\n\nお母さんからの背中に聞こえる声掛けは嬉しいものではないでしょうか、\n守られていると思いますよね。\n\n女性が外で働く事を美化し、\n世帯収入で何とか生活をやってるのって、政府に操られていると思う。\n昔に出来て、\n今できない事なんてないと思う。\n\n今の世は、\n女性は外で働き、\n家事、育児…\n毎日、毎日、男より疲れてるじゃん…\n本当、頭が下がります。\n女性が楽に暮らせる世であって欲しい。\n\n誰がこんな世の中にしたんだよ、\n変えなきゃダメだ、絶対。\nどうしたんだ、日本…\nどこでどう、こうなったんだ…",
+      "postedAt": "2025-03-04T13:25:00.000Z",
+      "likes": 9200,
+      "replies": 715,
+      "reposts": 254,
+      "quotes": 3,
+      "metricsFromThreadRoot": true,
+      "themes": [
+        "childcare"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 40.6
+    },
+    {
+      "platform": "threads",
+      "id": "DHTZASjT9Mi",
+      "url": "https://www.threads.com/@mamaco_akane/post/DHTZASjT9Mi",
+      "author": "mamaco_akane",
+      "text": "中学生の子が風邪で高熱出て、\n「看病するので仕事休みます。」\nってアリ？",
+      "postedAt": "2025-03-17T06:58:00.000Z",
+      "likes": 11300,
+      "replies": 808,
+      "reposts": 11,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "対象テーマに合致しない"
+      ],
+      "score": 40.5
+    },
+    {
+      "platform": "x",
+      "id": "2017447394221437077",
+      "url": "https://x.com/YokoBlankCafe/status/2017447394221437077",
+      "author": "YokoBlankCafe",
+      "text": "「FPさんによると、専業主婦が扶養を超えて働きに出るなら、年収500万円以上の仕事じゃないとモトが取れないらしい」\nというような投稿を少し前に見かけたのは、正直ショックだったな。\n\n現在専業主婦の方で、年収500万円の仕事に就ける方はそういない。\nじゃあ私は何のために今の発信をしてるのか。",
+      "postedAt": "2026-01-31T03:58:35.000Z",
+      "likes": 1909,
+      "replies": 21,
+      "reposts": null,
+      "quotes": null,
+      "themes": [
+        "women-work"
+      ],
+      "themeLabels": [
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 39.8
+    },
+    {
+      "platform": "threads",
+      "id": "DOxyvgxCOfG",
+      "url": "https://www.threads.com/@sayu_hoikushi/post/DOxyvgxCOfG",
+      "author": "sayu_hoikushi",
+      "text": "母子家庭で必死に働いている保護者は、\n残業して税金も保育料もきっちり納めてるのに\n「点数が足りないので認可は落ちました」って突き返される。\n\n一方で生活保護家庭は保育料も給食費も無料で優先的に入園。\n\n……真面目に働く方が不利になるって、\nこの国の仕組みどうなってんの？笑",
+      "postedAt": "2025-09-19T02:00:00.000Z",
+      "likes": 7800,
+      "replies": 59,
+      "reposts": 180,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "対象テーマに合致しない"
+      ],
+      "score": 38.9
+    },
+    {
+      "platform": "x",
+      "id": "1988352526606074112",
+      "url": "https://x.com/presia_kijima/status/1988352526606074112",
+      "author": "presia_kijima",
+      "text": "「結婚したら、仕事を辞めて専業主婦になりたいです」\nそうプロフィールに書いている女性がいます。\nハッキリ言います。\n今の時代、この一言で男性は引いてしまいます。\n男性も「自分一人の稼ぎで家族を養えるか不安」と思っています。",
+      "postedAt": "2025-11-11T21:05:58.000Z",
+      "likes": 1547,
+      "replies": 215,
+      "reposts": null,
+      "quotes": null,
+      "themes": [
+        "women-work"
+      ],
+      "themeLabels": [
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 38.9
+    },
+    {
+      "platform": "x",
+      "id": "1555298764151132160",
+      "url": "https://x.com/monamick30/status/1555298764151132160",
+      "author": "monamick30",
+      "text": "共働き。家事育児にイライラが止まらない私。夫が｢もう頑張ったよ。家事代行サービス考えよう。外に委託できるものは投げちゃえば良い。好きな事したり子供と遊んだり、仕事も同じ。楽しそうに笑うの見てるのが好きなんだよ。俺」と…。これ、世の妻‘’欲しい言葉ギフトセット‘’じゃない？(灬ºωº灬)",
+      "postedAt": "2022-08-04T21:04:56.000Z",
+      "likes": 3059,
+      "replies": 33,
+      "reposts": null,
+      "quotes": null,
+      "themes": [
+        "childcare",
+        "marriage",
+        "women-work"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "夫婦のあり方・夫婦の価値観",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 37.9
+    },
+    {
+      "platform": "threads",
+      "id": "DWSKDTakiu6",
+      "url": "https://www.threads.com/@mamasaifu_mamoru/post/DWSKDTakiu6",
+      "author": "mamasaifu_mamoru",
+      "text": "",
+      "postedAt": "2026-03-24T15:19:00.000Z",
+      "likes": 5400,
+      "replies": 88,
+      "reposts": 155,
+      "quotes": 2,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "対象テーマに合致しない"
+      ],
+      "score": 37.3
+    },
+    {
+      "platform": "threads",
+      "id": "DPKQ7_jE_c5",
+      "url": "https://www.threads.com/@chie_tezuka/post/DPKQ7_jE_c5",
+      "author": "chie_tezuka",
+      "text": "私ずーっと専業主婦でいたい。今から働くのってなんかイヤだな。まわりはみんな仕事してるけど。毎日が日曜日みたいに暮らしたい💖",
+      "postedAt": "2025-09-28T14:06:00.000Z",
+      "likes": 1000,
+      "replies": 124,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "women-work"
+      ],
+      "themeLabels": [
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 37
+    },
+    {
+      "platform": "threads",
+      "id": "DQ0U-g6E5p_",
+      "url": "https://www.threads.com/@teiji_oriental/post/DQ0U-g6E5p_",
+      "author": "teiji_oriental",
+      "text": "えみ姉さんの離婚の件、彼女の動画をたくさん見た訳ではないけど、夫婦で話してる動画を見るに、夫側は「自分よりも下で自信を与えてくれる存在」で価値を感じていた彼女・妻が、自分よりも仕事で成功してしまい、色々と言われたりイジられたり、助言を受けるような立場関係が理想通りでなく、夫側から離婚したいって雰囲気出したんだろうな〜と。えみ姉離婚のように、仕事ができる女性が結婚生活も維持する難しさがたくさん詰まっている。。",
+      "postedAt": "2025-11-08T17:40:00.000Z",
+      "likes": 935,
+      "replies": 8,
+      "reposts": 8,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "marriage"
+      ],
+      "themeLabels": [
+        "夫婦のあり方・夫婦の価値観"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "Mai さん自身の修羅場と重なる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 935 件（下限 1000）"
+      ],
+      "score": 36.7
+    },
+    {
+      "platform": "x",
+      "id": "1974384208735875260",
+      "url": "https://x.com/UsuiCynthia/status/1974384208735875260",
+      "author": "UsuiCynthia",
+      "text": "政治家には、ワークライフバランスがない。これが現実。高市早苗新総裁の「ワークライフバランスを捨てる」という言葉に覚悟を感じた。彼女は現状を認めた。国を立て直そうとしている人には、ワークライフバランスはない。きれいごとを言わない信用できる女性リーダーがやっと誕生したと思った。日本社",
+      "postedAt": "2025-10-04T08:00:52.000Z",
+      "likes": 4436,
+      "replies": 23,
+      "reposts": null,
+      "quotes": null,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "対象テーマに合致しない"
+      ],
+      "score": 36.5
+    },
+    {
+      "platform": "threads",
+      "id": "DaAUEPemQV7",
+      "url": "https://www.threads.com/@ouxiaomin421/post/DaAUEPemQV7",
+      "author": "ouxiaomin421",
+      "text": "",
+      "postedAt": "2026-06-25T03:06:00.000Z",
+      "likes": 4300,
+      "replies": 1000,
+      "reposts": 53,
+      "quotes": 72,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "対象テーマに合致しない"
+      ],
+      "score": 36.3
+    },
+    {
+      "platform": "threads",
+      "id": "DOFsk7uE0bM",
+      "url": "https://www.threads.com/@takashi19631207/post/DOFsk7uE0bM",
+      "author": "ak__0928p",
+      "text": "皆さんに質問です。\n私34歳、旦那40歳の夫婦です。\n第二子を考えてますが、旦那が４１歳で第二子のパパになるにはおかしいでしょうか？\n旦那が高齢なので幼稚園とかで浮きそうなのでどうしようか悩んでます。\nアドバイスください。",
+      "postedAt": "2025-09-01T18:10:00.000Z",
+      "likes": 314,
+      "replies": 150,
+      "reposts": 1,
+      "quotes": null,
+      "metricsFromThreadRoot": true,
+      "themes": [
+        "marriage"
+      ],
+      "themeLabels": [
+        "夫婦のあり方・夫婦の価値観"
+      ],
+      "brandFit": {
+        "score": 4,
+        "notes": [
+          "日本×ドバイの対比が使える",
+          "40歳・5児という属性が効く"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 314 件（下限 1000）"
+      ],
+      "score": 34
+    },
+    {
+      "platform": "threads",
+      "id": "DUNIYJMEtMc",
+      "url": "https://www.threads.com/@sorasaku_main/post/DUNIYJMEtMc",
+      "author": "sorasaku_main",
+      "text": "",
+      "postedAt": "2026-01-31T22:25:00.000Z",
+      "likes": 2500,
+      "replies": 202,
+      "reposts": 24,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "対象テーマに合致しない"
+      ],
+      "score": 34
+    },
+    {
+      "platform": "threads",
+      "id": "DQybq0AAGZV",
+      "url": "https://www.threads.com/@kirari_nursery_/post/DQybq0AAGZV",
+      "author": "kirari_nursery_",
+      "text": "保育士です。\n発熱で早退した子の翌朝、保護者がにこやかに一言。\n「熱下がったんで、今日は預けちゃいまーす♪」\n\nえ、昨日38.9℃でしたよね？\n\nなんのための「24時間様子見」だと思ってんの。\n保育園、回復室じゃないから！",
+      "postedAt": "2025-11-08T00:00:00.000Z",
+      "likes": 1200,
+      "replies": 31,
+      "reposts": 5,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿"
+      ],
+      "score": 31.8
+    },
+    {
+      "platform": "threads",
+      "id": "DXjoEhkief0",
+      "url": "https://www.threads.com/@ykr_06m/post/DXjoEhkief0",
+      "author": "ykr_06m",
+      "text": "高齢出産のあるあるなのかな？私は40で出産したので、娘がおばあちゃんになる姿を見れない。\nそしたらなんともいえへん気持ちになる😔😔\nMAX長生きできたとしても100歳と60歳。\n80歳のおばあちゃんの姿を見るには120歳まで😱笑。\n長くても60年しか一緒にいれないと思うと、1日1日というより一瞬一瞬をたいせつに娘と過ごしていきたいなぁと強く思う。\nなんかふとそういうことがよぎる私はメンタルやられてるな🫠",
+      "postedAt": "2026-04-25T06:40:00.000Z",
+      "likes": 371,
+      "replies": 49,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "fertility"
+      ],
+      "themeLabels": [
+        "妊活・出産"
+      ],
+      "brandFit": {
+        "score": 2,
+        "notes": [
+          "40歳・5児という属性が効く"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 371 件（下限 1000）"
+      ],
+      "score": 30.7
+    },
+    {
+      "platform": "threads",
+      "id": "DGfssnFzaIN",
+      "url": "https://www.threads.com/@yan__jima/post/DGfssnFzaIN",
+      "author": "yan__jima",
+      "text": "私はコープ共済（たすけあい&ずっとあい）に入ってるのですが、不妊治療でも共済金がおります🙆‍♀️\n\n採卵術→実費約90000円、共済36000円\n胚移植→実費約40000円、共済50000円\nFT→実費約280000円、共済211000円\nがおりました。\n\n実費の採卵術は麻酔とか胚培養などの費用も込みなのでお高くなりました（共済では受精卵・胚培養管理料などがおりない）。FTに関しては、結局その後別の医師からすぐ体外受精をしたほうがいいと勧められたので無意味だったんでは…と思いますが致し方なし…。\n\n何が一番言いたいかというと、コープ共済は手続きもスマホ上で簡単だし振込も早いですし、感謝しかございません🥲私は不妊治療前に保険まわりが気になってたので、同じような方がいれば参考になれば幸いです🙆‍♀️",
+      "postedAt": "2025-02-25T04:10:00.000Z",
+      "likes": 505,
+      "replies": 18,
+      "reposts": 3,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "fertility"
+      ],
+      "themeLabels": [
+        "妊活・出産"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 505 件（下限 1000）"
+      ],
+      "score": 28
+    },
+    {
+      "platform": "threads",
+      "id": "DIG3NhzTYHu",
+      "url": "https://www.threads.com/@mama_sensai/post/DIG3NhzTYHu",
+      "author": "100zeroonna",
+      "text": "批判されるかもしれませんが\n私は個人的に「ワンオペ」という言葉が好きでないです\nよくSNSでワンオペ育児等見ますが\n旦那様が外で稼いできてくれるんだから家で家事育児するのは当たり前だと思うし\n\n私はシングルで朝昼晩と掛け持ち仕事して子供たちを育て家事もやってきたので\n旦那様がいて家事育児出来ることは幸せだと思う\n大変なのは分かるけどもっと過酷なワンオペ育児してる人が沢山いる",
+      "postedAt": "2025-04-05T17:43:00.000Z",
+      "likes": 389,
+      "replies": 125,
+      "reposts": 5,
+      "quotes": 8,
+      "metricsFromThreadRoot": true,
+      "themes": [
+        "childcare",
+        "marriage"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "夫婦のあり方・夫婦の価値観"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 389 件（下限 1000）"
+      ],
+      "score": 27.9
+    },
+    {
+      "platform": "threads",
+      "id": "DMsOhNOxez1",
+      "url": "https://www.threads.com/@hr_hoiku/post/DMsOhNOxez1",
+      "author": "hr_hoiku",
+      "text": "親の体調不良で子どもを保育園に預けるのはどうなのかって疑問をみて\n感染症じゃなければ全然預かるよって思ったんだけど\n\nふと逆に保育園通ってなくて、幼稚園まで家庭で見ているママって\n自分が体調不良の時どうしてるの？すごくない？",
+      "postedAt": "2025-07-29T05:04:00.000Z",
+      "likes": 91,
+      "replies": 74,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "「頼るのが当たり前」という海外比較に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 91 件（下限 1000）"
+      ],
+      "score": 26.6
+    },
+    {
+      "platform": "threads",
+      "id": "DKCRhlosONA",
+      "url": "https://www.threads.com/@rikarika_cook/post/DKCRhlosONA",
+      "author": "rikarika_cook",
+      "text": "産後の恨みは一生…みたいな投稿が多すぎるので\n産後の感謝は一生♡って話聞かせてください！！！",
+      "postedAt": "2025-05-24T05:00:00.000Z",
+      "likes": 323,
+      "replies": 52,
+      "reposts": 8,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 323 件（下限 1000）"
+      ],
+      "score": 26.1
+    },
+    {
+      "platform": "threads",
+      "id": "DXqrnPTALph",
+      "url": "https://www.threads.com/@yumimingo_tv/post/DXqrnPTALph",
+      "author": "yumimingo_tv",
+      "text": "",
+      "postedAt": "2026-04-28T00:26:00.000Z",
+      "likes": 385,
+      "replies": 14,
+      "reposts": 1,
+      "quotes": 1,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 385 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 25.9
+    },
+    {
+      "platform": "threads",
+      "id": "DTSYM7pgck2",
+      "url": "https://www.threads.com/@pumimama07/post/DTSYM7pgck2",
+      "author": "punimama__07",
+      "text": "最近めちゃくちゃ思うんやけど\nワーママVS専業主婦とか、フルタイムVS時短\nみたいなん見たら悲しくなるねんな😭\nもうこれはさ、全母VS国 なんじゃない？違う？\n働きたい人が働けて\n専業主婦したい人は専業主婦出来て\nいい感じで時短したい人は出来て\nんーなんかもう分からんけど、母同士が争うのだけは違う気がしてる",
+      "postedAt": "2026-01-09T02:49:00.000Z",
+      "likes": 63,
+      "replies": 25,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": true,
+      "themes": [
+        "women-work"
+      ],
+      "themeLabels": [
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 63 件（下限 1000）"
+      ],
+      "score": 25
+    },
+    {
+      "platform": "threads",
+      "id": "DXJr7FklLNa",
+      "url": "https://www.threads.com/@emiko.wedding/post/DXJr7FklLNa",
+      "author": "9dlashdmf0",
+      "text": "夫婦2人家庭のみなさん！\n毎月の食費(自炊)の\n金額教えてください！！☺️\nネットでは平均７万くらいだと\nなってましたが\n高すぎませんか…？",
+      "postedAt": "2026-04-14T18:52:00.000Z",
+      "likes": 115,
+      "replies": 230,
+      "reposts": 1,
+      "quotes": 1,
+      "metricsFromThreadRoot": true,
+      "themes": [
+        "marriage"
+      ],
+      "themeLabels": [
+        "夫婦のあり方・夫婦の価値観"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 115 件（下限 1000）"
+      ],
+      "score": 21.6
+    },
+    {
+      "platform": "x",
+      "id": "2046114795523649619",
+      "url": "https://x.com/meia_5386/status/2046114795523649619",
+      "author": "meia_5386",
+      "text": "@umeharuco 専業主婦だって、かなり立派な仕事だよね🤞\n掃除、洗濯、料理などなど。\n誰のおかげでキレイな家に住めて、キレイに洗われた服を着られて、美味しいメシが食えてると思ってんだ⚡️と、逆に言いたいよね😠\n外で働くだけが仕事じゃないんだよね😤",
+      "postedAt": "2026-04-20T06:32:36.000Z",
+      "likes": 22,
+      "replies": 1,
+      "reposts": null,
+      "quotes": null,
+      "themes": [
+        "women-work"
+      ],
+      "themeLabels": [
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 22 件（下限 1000）"
+      ],
+      "score": 20.4
+    },
+    {
+      "platform": "x",
+      "id": "2048801464601247796",
+      "url": "https://x.com/ariyorinoariari/status/2048801464601247796",
+      "author": "ariyorinoariari",
+      "text": "専業主婦の仕事は、人が生きていく上で発生するあらゆる雑務を肩代わりすることなので、自分の事すらできない赤子が増えれば1日は24時間じゃ足りなくなるし、家族の都合と健康と機嫌に延々振り回されることになるので⋯全然楽じゃないぞ？",
+      "postedAt": "2026-04-27T16:28:28.000Z",
+      "likes": 16,
+      "replies": 0,
+      "reposts": null,
+      "quotes": null,
+      "themes": [
+        "women-work"
+      ],
+      "themeLabels": [
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 16 件（下限 1000）"
+      ],
+      "score": 19
+    },
+    {
+      "platform": "threads",
+      "id": "C_iXdE2Sa00",
+      "url": "https://www.threads.com/@k_nali/post/C_iXdE2Sa00",
+      "author": "k_nali",
+      "text": "おれは「ワンオペ育児」って言葉が基本的に嫌い。",
+      "postedAt": "2024-09-05T06:22:00.000Z",
+      "likes": 61,
+      "replies": 15,
+      "reposts": 1,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 61 件（下限 1000）"
+      ],
+      "score": 18.9
+    },
+    {
+      "platform": "threads",
+      "id": "DSw-yLOCVnv",
+      "url": "https://www.threads.com/@yoshi99685/post/DSw-yLOCVnv",
+      "author": "55parako",
+      "text": "今日から10連休。\n大掃除で1番捨てたいものはなんですか？",
+      "postedAt": "2025-12-26T20:57:00.000Z",
+      "likes": 69,
+      "replies": 75,
+      "reposts": 1,
+      "quotes": null,
+      "metricsFromThreadRoot": true,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 69 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 18.4
+    },
+    {
+      "platform": "threads",
+      "id": "C_vUH3ev44J",
+      "url": "https://www.threads.com/@8horiatsu8/post/C_vUH3ev44J",
+      "author": "8horiatsu8",
+      "text": "",
+      "postedAt": "2024-09-10T07:03:00.000Z",
+      "likes": 65,
+      "replies": 3,
+      "reposts": 4,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 65 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 18.1
+    },
+    {
+      "platform": "threads",
+      "id": "DYEm-sEkoWy",
+      "url": "https://www.threads.com/@miyuruyu/post/DYEm-sEkoWy",
+      "author": "miyuruyu",
+      "text": "スレッズ良い人も多いんだけど、めんどくさいひともめちゃくちゃ多いな！リアルでは関わりたくないタイプのひとたくさんいる 笑",
+      "postedAt": "2026-05-08T02:05:00.000Z",
+      "likes": 61,
+      "replies": 18,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 61 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 17.9
+    },
+    {
+      "platform": "x",
+      "id": "2044342338588381469",
+      "url": "https://x.com/hiro_takai/status/2044342338588381469",
+      "author": "hiro_takai",
+      "text": "“ けっこうな重荷を背負って「人間」を育てているのだから、温かく見守ってくださいな、というのは、そんな過分なお願いでもないだろう、と思うのだが、いかがでしょうか。“",
+      "postedAt": "2026-04-15T09:09:30.000Z",
+      "likes": 59,
+      "replies": 1,
+      "reposts": null,
+      "quotes": null,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 59 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 17.7
+    },
+    {
+      "platform": "threads",
+      "id": "DODyq4Ej9TT",
+      "url": "https://www.threads.com/@yurie_childcare/post/DODyq4Ej9TT",
+      "author": "yurie_childcare",
+      "text": "ついに大台突破！！！\n\nコンサル生の一人が先月の月収100万超えた😅\n\n今まで100人以上のベビーシッターと会って話してきたけど、ベビーシッターだけの収入で月収100万超えてた人は私含め二人くらいだった。\n\nその数少ない100万超えプレイヤーの一人が私のコンサル生から出たことは単純に誇らしい事です。\n\nでも、私がずっと伝えたかったのはこの結果なんです！\n\n私は自分の事が特別な人間だって思わないし、そのコンサル生も保育園での働き方に馴染めず、苦労してきた。どちらかと言えば社会一般的に見たら劣等生の部類。\n\nそれでもベビーシッターという働き方で月収100万を達成することが出来た。\n\n何が言いたいかって、滅茶苦茶な努力は必要だけど、特別なスキルは必要ないし、誰にでもその可能性があるって事。\n\n意味わかんないかも知れないけど、誰でも出来るけど、誰でもは出来ないみたいな( ;∀;)\n\n結局そこまで努力出来る人間が殆どいないから。\n\nちなみに30代女性で月収100万を超える人の割合は0.2%以下らしい、、、\n\nてことはベビーシッター100人の中で3人いるって事は実はすごい事なのかもしれない、、、🤔",
+      "postedAt": "2025-09-01T05:14:00.000Z",
+      "likes": 10,
+      "replies": null,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "「頼るのが当たり前」という海外比較に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 10 件（下限 1000）"
+      ],
+      "score": 17
+    },
+    {
+      "platform": "threads",
+      "id": "DOkkWA7k8ka",
+      "url": "https://www.threads.com/@mayumi0904/post/DOkkWA7k8ka",
+      "author": "mayumi0904",
+      "text": "旦那さんの文句言ってる専業主婦の方\nすごく多いけど、、、\n私は、子育てや家事よりも、仕事の方が何倍も大変です。\n小さい子どもいて、うちは共働きです。週5でフルです。\nだから、毎日ヘトヘトです。それでも、子どものこと家のことも多少はやらなきゃいけません。\n家事も育児も協力一切しない暴言だけ吐いてる旦那さんは論外で、それはもちろん不満あって当然ですし\n子育てや家事がどれだけ大変かも身を持って知っています！\nでも毎日働いて、帰ってきたら休ませてほしいし、休みの日くらい寝たいって思うのも、少しは理解してあげてほしい。\nお金稼いでやってる　の上から目線は違うけど\n仕事で疲れてるから休ませて　はまっとうな理由です。\n働いてるパパもママも、育児家事を完璧にこなしてる専業主婦も、尊敬でしかありません。\nだけど文句はあっても、ここであがってくる愚痴は、寄り添う言葉がない投稿ばかり。一方的な文句が多くて、\n旦那が何もしてくれません　ばっか。\n働いてるこっちとしては、求めてばかりじゃなくて、\nもう少し労ってあげたらと思ってしまう。\nお互い、気遣いや言い方次第で、行動も関係性も\n変えられると思う。",
+      "postedAt": "2025-09-13T22:44:00.000Z",
+      "likes": 6,
+      "replies": 1,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare",
+        "marriage",
+        "women-work"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "夫婦のあり方・夫婦の価値観",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 6 件（下限 1000）"
+      ],
+      "score": 16.8
+    },
+    {
+      "platform": "x",
+      "id": "2049276600395677878",
+      "url": "https://x.com/chanyuka191128/status/2049276600395677878",
+      "author": "chanyuka191128",
+      "text": "私は、専業主婦だったわけじゃなく、子供の様子を見ながらいろいろな仕事をしていて…！\n結婚してた頃の積み重ねがあって、お金だけじゃなく、仕事も子育てもその積み重ねがあるかどうかでシングルの生活は全然違う気がしてて😅\nシングル家庭はダメな人たちって一括りにされるのは何だかなって思った💦",
+      "postedAt": "2026-04-28T23:56:29.000Z",
+      "likes": 7,
+      "replies": 0,
+      "reposts": null,
+      "quotes": null,
+      "themes": [
+        "childcare",
+        "women-work"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 7 件（下限 1000）"
+      ],
+      "score": 16.5
+    },
+    {
+      "platform": "threads",
+      "id": "DUElQwiErco",
+      "url": "https://www.threads.com/@r__rcpis/post/DUElQwiErco",
+      "author": "1986.laputa",
+      "text": "皆さんの意見を聞かせてください。\n\n妻に不倫されて再構築の道を歩んでいます。\n不倫は許される事ではないけど、私にも問題があり、お互い気持ちが離れてはいないと判断して再構築を選択しました。\n不倫相手は、妻の職場の仲の良い複数メンバーの内の1人なため、不倫発覚後も2人きりでない限りは、遊ぶことは許しています。（職場の人に不倫の事は知られていないし、今後も知られたくない。）\nまた、元々異性と2人で遊ぶことなど何とも思わなかったんですが、不倫発覚後からは、一言報告するようお願いしています。\n\nこのように、妻の行動を制約する事に関して皆さんはどう思われますか？",
+      "postedAt": "2026-01-28T08:08:00.000Z",
+      "likes": 32,
+      "replies": 40,
+      "reposts": 4,
+      "quotes": 1,
+      "metricsFromThreadRoot": true,
+      "themes": [
+        "marriage"
+      ],
+      "themeLabels": [
+        "夫婦のあり方・夫婦の価値観"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 32 件（下限 1000）"
+      ],
+      "score": 16.1
+    },
+    {
+      "platform": "threads",
+      "id": "DTLDrIIAXoP",
+      "url": "https://www.threads.com/@yunmaimei/post/DTLDrIIAXoP",
+      "author": "yunmaimei",
+      "text": "手抜き警察さんに勝負を挑む\n家事全て ……夫\n育児・学校関係……夫\nお歳暮手配とお礼の電話\n ……もちろん夫\n\nとにかくぜ〜んぶ夫！\nこれは……勝つ予感しか無い\nどうですか？\n降参だと思うけど一応聞いとく\n(　･´ｰ･｀)ﾄﾞﾔｧｧｧｧ",
+      "postedAt": "2026-01-06T06:34:00.000Z",
+      "likes": 23,
+      "replies": 6,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare",
+        "marriage"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "夫婦のあり方・夫婦の価値観"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 23 件（下限 1000）"
+      ],
+      "score": 15.6
+    },
+    {
+      "platform": "threads",
+      "id": "DU3Dj4uj8wU",
+      "url": "https://www.threads.com/@manaminn03/post/DU3Dj4uj8wU",
+      "author": "p_kcr51",
+      "text": "夜だけ母子別室にされてた方、してる方いらっしゃいますか？？\n眠れなくて体力回復の為に預けてますが、少し罪悪感…🥲\n日中はずっと一緒です！！",
+      "postedAt": "2026-02-17T05:00:00.000Z",
+      "likes": 32,
+      "replies": 40,
+      "reposts": 1,
+      "quotes": null,
+      "metricsFromThreadRoot": true,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 32 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 15.1
+    },
+    {
+      "platform": "threads",
+      "id": "DYXJFHtDwQk",
+      "url": "https://www.threads.com/@yoko1643/post/DYXJFHtDwQk",
+      "author": "yoko1643",
+      "text": "",
+      "postedAt": "2026-05-15T06:50:00.000Z",
+      "likes": 32,
+      "replies": 4,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 32 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 15.1
+    },
+    {
+      "platform": "threads",
+      "id": "DXlzKo_iYEh",
+      "url": "https://www.threads.com/@smke727/post/DXlzKo_iYEh",
+      "author": "smke727",
+      "text": "みなさんの旦那様のいいところ自慢をしてください。わたし夫のいいところは不機嫌になると急に片付けスイッチが入り、人のものを急に捨て始めるところです。",
+      "postedAt": "2026-04-26T02:55:00.000Z",
+      "likes": 20,
+      "replies": 38,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "marriage"
+      ],
+      "themeLabels": [
+        "夫婦のあり方・夫婦の価値観"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 20 件（下限 1000）"
+      ],
+      "score": 14
+    },
+    {
+      "platform": "threads",
+      "id": "DYQQnpbkxhc",
+      "url": "https://www.threads.com/@yucom27/post/DYQQnpbkxhc",
+      "author": "motuni1422",
+      "text": "24歳で結婚して退職。\n25歳で出産\n27歳で2人目出産\n30歳でパート5年目。\n\n専業主婦になるはずだったのに😨",
+      "postedAt": "2026-05-11T21:48:00.000Z",
+      "likes": 4,
+      "replies": 1,
+      "reposts": 4,
+      "quotes": 1,
+      "metricsFromThreadRoot": true,
+      "themes": [
+        "fertility",
+        "women-work"
+      ],
+      "themeLabels": [
+        "妊活・出産",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "経済的自立に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 4 件（下限 1000）"
+      ],
+      "score": 14
+    },
+    {
+      "platform": "threads",
+      "id": "DVisr4Tj7bJ",
+      "url": "https://www.threads.com/@kawabata_kanako/post/DVisr4Tj7bJ",
+      "author": "kawabata_kanako",
+      "text": "",
+      "postedAt": "2026-03-06T03:58:00.000Z",
+      "likes": 23,
+      "replies": 1,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 23 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 13.6
+    },
+    {
+      "platform": "threads",
+      "id": "DaAL0cYkdSp",
+      "url": "https://www.threads.com/@39_sr400_m/post/DaAL0cYkdSp",
+      "author": "39_sr400_m",
+      "text": "彼氏に期待しない方法教えてほしい",
+      "postedAt": "2026-06-25T01:54:00.000Z",
+      "likes": 4,
+      "replies": 7,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "「期待しない」哲学に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 4 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 12
+    },
+    {
+      "platform": "threads",
+      "id": "DYFw9jEEyMu",
+      "url": "https://www.threads.com/@ayanon1021/post/DYFw9jEEyMu",
+      "author": "ayanon1021",
+      "text": "親が悪い。親しか悪くない。\nコピー品だとしても娘がプレゼントしてくれたものは喜んで使う…\nしかもこの期に及んで「許して」なんてよく言えたなと。\n\n本物かどうか、使い勝手がどうかは関係ない。\n娘がくれたもの、なだけで大切にできるはず。\n\n娘さんの気持ちを15年も蔑ろにし、さらに「一生黙っておけばよかった」は、自分は悪くないとどこまでも他責すぎます。",
+      "postedAt": "2026-05-08T12:52:00.000Z",
+      "likes": 4,
+      "replies": null,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 3,
+        "notes": [
+          "「期待しない」哲学に接続できる"
+        ]
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 4 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 12
+    },
+    {
+      "platform": "x",
+      "id": "1813514225698107487",
+      "url": "https://x.com/note_PR/status/1813514225698107487",
+      "author": "note_PR",
+      "text": "\"弊夫のスペックを棚卸してみた。家事と育児に分けて、どんな感じで分担してるか整理した。結果……\n\nやっぱこの人ハイスペやわ、特に家事。\"\n\n万バズしてやっとわかった神夫の超人スペック｜うみ@コンサルワーママ @umi_stm08 \n\nhttps://t.co/r1DVqTUP56",
+      "postedAt": "2024-07-17T10:00:59.000Z",
+      "likes": 7,
+      "replies": 0,
+      "reposts": null,
+      "quotes": null,
+      "themes": [
+        "childcare",
+        "marriage",
+        "women-work"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "夫婦のあり方・夫婦の価値観",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 7 件（下限 1000）"
+      ],
+      "score": 11.5
+    },
+    {
+      "platform": "threads",
+      "id": "DVIzcFiD1uw",
+      "url": "https://www.threads.com/@anko._mama/post/DVIzcFiD1uw",
+      "author": "anko._mama",
+      "text": "【対象外】\n・妊娠検査薬代\n・任意の予防接種費用\n・通院でかかったガソリン代・駐車代\n・里帰りにかかる交通費\n・マタニティヨガの参加費\n・母親、両親学級の参加費\n・差額ベット代\n・入院時のパジャマなどの雑費\n・出生届や診断書のための文書料\n・出生前診断の費用（検査結果後、医療的処置をした場合は対象）\n・無痛分娩講座の費用\n・搾乳機、乳頭保護器などの費用（原則対象外）\n・乳量を増やすための母乳マッサージ（治療目的なら対象）\n・医師や看護師に対するお礼\n・立ち合い出産の家族の交通費\n・骨盤矯正費用（専門家の治療目的なら対象）\n\n ︎︎\n👇医療費控除をするときの注意点は",
+      "postedAt": "2026-02-24T02:37:00.000Z",
+      "likes": 8,
+      "replies": 1,
+      "reposts": 9,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "fertility"
+      ],
+      "themeLabels": [
+        "妊活・出産"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 8 件（下限 1000）"
+      ],
+      "score": 10
+    },
+    {
+      "platform": "threads",
+      "id": "DWBY8V4AbY4",
+      "url": "https://www.threads.com/@mainsta0607/post/DWBY8V4AbY4",
+      "author": "maya_park_bb",
+      "text": "とりあえず、頭いい子の親の\n\n『うちは本当になんも強制とかしてなくて、ゲームとかも好きに自由にやらせてるけどね〜あんまり強制してもねえ？なんだかんだ勉強してるよ？』ってのを真似するのはお勧めしませぬ。\n\nそういうｱｯﾀﾏｲｲ！子も\n\nま\nれ\nに\nい\nる\n\nだけですー。\n\nゴッリゴリにスマホ制限、ゲーム時間規制、して、やっと中1とか中2の終わりに自分で定期試験の勉強のコツのようなものをぼんやりつかんだらしい我が家の凡人たち。\n\nもちろん一度は試したよ！自主性ってやつに期待してな！ろくなことにならなかったYO！\n\n親がんばろー…",
+      "postedAt": "2026-03-17T00:38:00.000Z",
+      "likes": 8,
+      "replies": 4,
+      "reposts": 1,
+      "quotes": null,
+      "metricsFromThreadRoot": true,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 8 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 9
+    },
+    {
+      "platform": "threads",
+      "id": "DW8FmZgFHyN",
+      "url": "https://www.threads.com/@____haru.mama/post/DW8FmZgFHyN",
+      "author": "____haru.mama",
+      "text": "怖いこと言います。保育園の洗礼、慣らし保育中にもらいやすいって思われがちだけど、実はもう1回、発熱しがちなタイミングがある。1人目の娘のときにわたしが実際に経験したんだけど、それが、",
+      "postedAt": "2026-04-09T22:08:00.000Z",
+      "likes": 6,
+      "replies": 2,
+      "reposts": 3,
+      "quotes": 1,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 6 件（下限 1000）"
+      ],
+      "score": 8.8
+    },
+    {
+      "platform": "threads",
+      "id": "DW3DcsvkQBG",
+      "url": "https://www.threads.com/@kids_cookinging/post/DW3DcsvkQBG",
+      "author": "kids_cookinging",
+      "text": "いきなり風邪・・・\n\n慣らし保育中でいきなり熱で保育園から電話でお迎え・・・あるあるです。子供は免疫力がないので、密な保育園では換気や感染予防をしてても菌がたくさんなのでもらいやすいんです\nでも、そうやって免疫力を上げていくので、そこまで気にしなくても大丈夫ですよ",
+      "postedAt": "2026-04-07T23:13:00.000Z",
+      "likes": 4,
+      "replies": null,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare",
+        "marriage"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "夫婦のあり方・夫婦の価値観"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 4 件（下限 1000）"
+      ],
+      "score": 8
+    },
+    {
+      "platform": "threads",
+      "id": "DP8DZoaEiWb",
+      "url": "https://www.threads.com/@mixnhe/post/DP8DZoaEiWb",
+      "author": "mixnhe",
+      "text": "エリート会社員の夫が、共働きの私に家事育児を丸投げして、しかも高収入マウントを取ってきた。\n「やってほしきゃ俺より稼いでみろw」って、そんなこと言われてもね…。\n\nでも、ある日私が「じゃあ明日から全部よろしくね？」って言ったら、夫が「え？」って固まった。\n\n実は、その後に起こった展開が予想外すぎて…\nまさかの結末が待ってたんだよｗ",
+      "postedAt": "2025-10-17T22:09:00.000Z",
+      "likes": 2,
+      "replies": 1,
+      "reposts": 1,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "childcare",
+        "marriage",
+        "women-work"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "夫婦のあり方・夫婦の価値観",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 2 件（下限 1000）"
+      ],
+      "score": 6
+    },
+    {
+      "platform": "threads",
+      "id": "DJJtCTMv81S",
+      "url": "https://www.threads.com/@yui_nomy/post/DJJtCTMv81S",
+      "author": "yui_nomy",
+      "text": "コメント欄見てびっくり。こんなにオナ電夫がたくさんいるのね。。\n旦那は許さず、相手は懲らしめるでいきましょう🔥",
+      "postedAt": "2025-05-02T05:43:00.000Z",
+      "likes": 3,
+      "replies": null,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "marriage"
+      ],
+      "themeLabels": [
+        "夫婦のあり方・夫婦の価値観"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 3 件（下限 1000）"
+      ],
+      "score": 5.8
+    },
+    {
+      "platform": "threads",
+      "id": "DOaQEwvD8BM",
+      "url": "https://www.threads.com/@ninkatsu_ueda/post/DOaQEwvD8BM",
+      "author": "ninkatsu_ueda",
+      "text": "今から毎日新聞さんの\n取材を受けます。\n\nテーマは\n転勤と不妊治療\n\n転勤で引っ越すと\n病院探して転院、\nまたゼロから検査、\nなんてことも😱\n\n私は4回転院しましたよ…\n\nそして最後は\n私が転勤になって退職。\n\n嵐のような30代でした。\n\n転勤族で不妊治療されてる方\n良かったら\nお悩み聞かせてくださいね😌",
+      "postedAt": "2025-09-09T22:34:00.000Z",
+      "likes": 3,
+      "replies": null,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "fertility"
+      ],
+      "themeLabels": [
+        "妊活・出産"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 3 件（下限 1000）"
+      ],
+      "score": 5.8
+    },
+    {
+      "platform": "threads",
+      "id": "DWlxCpPCWXM",
+      "url": "https://www.threads.com/@ninkatsu1025/post/DWlxCpPCWXM",
+      "author": "ninkatsu1025",
+      "text": "妊活中の理想の昼寝時間は「20分」💤\n「お昼にしっかり寝ちゃうと夜眠れない…」\nという方は、15時までにサクッと終わらせるのがコツ。\n実は、短い昼寝は自律神経を整えて、\n卵子の質に関わる成長ホルモンの分泌を助けてくれます。\n「1時間寝ちゃった！」と自分を責めないで。\n体がそれだけ休息を求めていた証拠。\n明日はタイマーをかけて、スッキリ起きる練習をしてみましょう✨",
+      "postedAt": "2026-04-01T06:05:00.000Z",
+      "likes": 2,
+      "replies": null,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [
+        "fertility"
+      ],
+      "themeLabels": [
+        "妊活・出産"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 2 件（下限 1000）"
+      ],
+      "score": 4
+    },
+    {
+      "platform": "threads",
+      "id": "DTSJ7iNkyWq",
+      "url": "https://www.threads.com/@mamikofuruya/post/DTSJ7iNkyWq",
+      "author": "mamikofuruya",
+      "text": "",
+      "postedAt": "2026-01-09T00:42:00.000Z",
+      "likes": 2,
+      "replies": 1,
+      "reposts": 1,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 2 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 3
+    },
+    {
+      "platform": "x",
+      "id": "2050003102221431149",
+      "url": "https://x.com/KIDSLINE_Colors/status/2050003102221431149",
+      "author": "KIDSLINE_Colors",
+      "text": "「共働き育児は無理ゲー」\nそんな声が最近よく聞こえてきています。\n\n実際にキッズラインの調査でも、共働き母親の82.6%が「日々の生活に余裕がない」と回答しました。\n\nそんな中、“共働き育児無理ゲー”解決の糸口も見え始めているようです。\n\n▼“無理ゲー”解決の糸口とは？\nhttps://t.co/NCLmEO4S51 https://t.co/oPEhoYvT03",
+      "postedAt": "2026-05-01T00:03:21.000Z",
+      "likes": 0,
+      "replies": 0,
+      "reposts": null,
+      "quotes": null,
+      "themes": [
+        "childcare",
+        "women-work"
+      ],
+      "themeLabels": [
+        "育児のリアル・孤独",
+        "女性の働き方・女性の自立"
+      ],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 0 件（下限 1000）"
+      ],
+      "score": 2
+    },
+    {
+      "platform": "threads",
+      "id": "DIPm6n4z9Yy",
+      "url": "https://www.threads.com/@mamahiroba/post/DIPm6n4z9Yy",
+      "author": "mamahiroba",
+      "text": "",
+      "postedAt": "2025-04-09T16:14:00.000Z",
+      "likes": 1,
+      "replies": null,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 1 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 0
+    },
+    {
+      "platform": "threads",
+      "id": "DXEV4OAExsv",
+      "url": "https://www.threads.com/@asteria_ky/post/DXEV4OAExsv",
+      "author": "asteria_ky",
+      "text": "私もそうです😄\n私もやりたいことがあるので、子どものためではなく自分のために働きます😊",
+      "postedAt": "2026-04-13T03:04:00.000Z",
+      "likes": 1,
+      "replies": null,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "30日より前の投稿",
+        "いいね 1 件（下限 1000）",
+        "対象テーマに合致しない"
+      ],
+      "score": 0
+    },
+    {
+      "platform": "threads",
+      "id": "DarlRgFIPE4",
+      "url": "https://www.threads.com/@o_o_0.__.o/post/DarlRgFIPE4",
+      "author": "o_o_0.__.o",
+      "text": "えぇ。高校生？会話からやばーてなったけど親の作ってくれたお弁当捨てて心痛い…なら作らなくて良いて言ってあげや😭",
+      "postedAt": "2026-07-11T22:23:00.000Z",
+      "likes": null,
+      "replies": null,
+      "reposts": null,
+      "quotes": null,
+      "metricsFromThreadRoot": false,
+      "themes": [],
+      "themeLabels": [],
+      "brandFit": {
+        "score": 0,
+        "notes": []
+      },
+      "passed": false,
+      "rejectedFor": [
+        "いいね数を取得できなかった",
+        "対象テーマに合致しない"
+      ],
+      "score": 0
+    }
+  ]
+}

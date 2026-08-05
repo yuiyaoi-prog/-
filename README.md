@@ -1,3 +1,14 @@
+# MAGI-C 社内自動化
+
+このリポジトリには独立した2つの仕組みが入っている。
+
+| ディレクトリ | 何をするか | 動く場所 |
+|---|---|---|
+| `src/` `dist/` | クライアント運用状況の確認オペレーション自動化（下記） | Google Apps Script |
+| `trend/` | X・Threads のバズ投稿からリール用トークテーマを集める → [`trend/README.md`](trend/README.md) | Node.js／Claude Code の `/trend-pickup` |
+
+---
+
 # クライアント運用状況 確認オペレーション自動化
 
 MAGI-C の「クライアント別 月次報告MTG / 撮影 / インナーMTG 日程管理」スプレッドシートを軸に、
