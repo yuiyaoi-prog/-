@@ -54,6 +54,16 @@ eq('月次報告MTG → E列(5)', getTargetByKind('月次報告MTG').col, 5);
 eq('撮影 → F列(6)', getTargetByKind('撮影').col, 6);
 eq('インナーMTG → 書き込み先なし', getTargetByKind('インナーMTG'), null);
 
+console.log('\n=== アラート対象（撮影と月次報告の両方） ===');
+eq('対象は2種別', CONFIG.ALERT_KINDS.length, 2);
+CONFIG.ALERT_KINDS.forEach(kind => {
+  const target = getTargetByKind(kind);
+  eq(`${kind} に列がある`, target !== null, true);
+});
+eq('撮影の列ラベル', getTargetByKind('撮影').label, '次回撮影日');
+eq('月次報告の列ラベル', getTargetByKind('月次報告MTG').label, '月次報告日');
+
+
 // ---------------------------------------------------------------------------
 console.log('\n=== クライアント名寄せ ===');
 const clients = [
@@ -88,6 +98,21 @@ const cname = t => { const c = matchClient(t, clients); return c ? c.name : null
 console.log('\n--- 種別判定は区切りを詰めない（誤判定の防止） ---');
 eq('「撮影 - 前田さん」は撮影のまま', detectKind('撮影 - 前田さん'), '撮影');
 eq('「【撮影 - 宮中対応】…」は撮影', detectKind('【撮影 - 宮中対応】ボンボンクリニック渋谷 14:00~'), '撮影');
+
+console.log('\n--- 実カレンダーの月次報告タイトル（種別＋クライアント） ---');
+[
+  ['社外_パーソナルジムRAT様 月次報告', '月次報告MTG', 'パーソナルジムRAT'],
+  ['社外_シースタンド様 月次報告', '月次報告MTG', 'シースタンド'],
+  ['社外_ちきゅうのうたげ月次報告', '月次報告MTG', 'ちきゅうのうたげ'],
+  ['社外KINS 月次報告MTG', '月次報告MTG', 'KINSプライム（下川さん）'],
+  ['社外_パーソナルRAT様 月次報告', '月次報告MTG', 'パーソナルジムRAT'],
+  // シートに無いクライアントは種別だけ判定され、書き込み先は決まらない
+  ['社外_河村社長 月次ミーティング', '月次報告MTG', null],
+  ['社外_河村社長 SNS運用 月次報告', '月次報告MTG', null],
+].forEach(([title, wantKind, wantClient]) => {
+  eq(`${title}（種別）`, detectKind(title), wantKind);
+  eq(`${title}（クライアント）`, cname(title), wantClient);
+});
 
 // ---------------------------------------------------------------------------
 console.log('\n=== シート名から年を解決 ===');
